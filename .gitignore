@@ -1,1 +1,3 @@
-.sass-cache/
+*
+!index.php
+!preview-bar/
