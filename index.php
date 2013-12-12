@@ -37,7 +37,7 @@ $items = array(
 		'url' => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496'
 	),
 	'webmarket-html' => array(
-		'title' => 'Webmarket - HTML Template for Online Shop Preview - by ProteusThemes',
+		'title' => 'Webmarket - HTML Template for Online Shop Preview - by ProteusThemess',
 		'title_short' => 'Webmarket HTML',
 		'url' => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
 	),
