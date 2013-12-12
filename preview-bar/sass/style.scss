@@ -1,0 +1,140 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3";
+
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+
+#custom-preview-bar {
+  height: 59px;
+  margin: 0;
+  background-color: #2e343a;
+  @include background(linear-gradient(to bottom, #2e343a, #21262b));
+  border-bottom: 1px solid #000;
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.5));
+  position: relative;
+  z-index: 99999;
+  text-align: center;
+  
+  > a,
+  > div {
+    @include inline-block;
+    max-height: 59px !important;
+  }
+  
+  .logo {
+    margin-left: 20px;
+    float: left;
+  }
+  .right {
+    float: right;
+    margin-right: 20px;
+    line-height: 59px;
+  }
+  
+  .center {
+    color: #cccfd1;
+    text-align: left;
+  }
+  .selectable {
+    background-color: #4a525a;
+    border: 3px solid #141619;
+    @include border-radius(5px);
+    padding: 8px 14px;
+    margin-top: 11px;
+    min-width: 200px;
+    @include box-shadow(0 1px 0 rgba(255,255,255,0.15));
+    position: relative;
+    
+    &:after,
+    &:before {
+      position: absolute;
+      content: "";
+      right: 10px;
+      width: 0;
+      height: 0;
+      border: 4px solid #cccfd1;
+    }
+    &:before {
+      top: 25%;
+      border-color: transparent transparent #cccfd1 transparent;
+    }
+    &:after {
+      top: 55%;
+      border-color: #cccfd1 transparent transparent transparent;
+    }
+  }
+  .other-themes {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 97%;
+    left: 0;
+    right: 0;
+    @include border-radius(0 0 5px 5px);
+    @include box-shadow(0 3px 3px rgba(0,0,0,.2));
+    
+    li {
+      a {
+        display: block;
+        background-color: #4a525a;
+        color: #cccfd1;
+        padding: 8px 14px;
+        text-decoration: none;
+        
+        &:hover {
+          background-color: #cccfd1;
+          color: #4a525a;
+        }
+      }
+      &:last-of-type a {
+        @include border-radius(0 0 5px 5px);
+      }
+    }
+  }
+  
+  .close {
+    @include opacity(0.25);
+    @include transition(opacity 0.3s ease-in-out);
+    margin-left: 10px;
+    
+    &:hover {
+      @include opacity(1);
+    }
+  }
+  .purchase {
+    @include transition(opacity 0.2s ease);
+    
+    &:hover {
+      @include opacity(0.9);
+    }
+  }
+}
+img {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+
+#main-preview-frame {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 999px;
+}
