@@ -26,9 +26,14 @@ if( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
  * Array of our themes
  */
 $items = array(
+	// key is the folder relative the the BASE_URL contant above. 'hairpress' here will open up the:
+	// http://www.proteusthemes.com/themes/hairpress
 	'hairpress' => array(
+		// title which will be shown in the browser
 		'title' => 'Hairpress - HTML Template for Hair Salons Preview - by ProteusThemes',
+		// short title is used in the drop-down menu
 		'title_short' => 'Hairpress HTML',
+		// needs any explanation? URL to your item in ThemeForest
 		'url' => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346'
 	),
 	'hairpress-wp' => array(
