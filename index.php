@@ -42,7 +42,7 @@ $items = array(
 		'url' => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
 	),
 	'webmarket-magento' => array(
-		'title' => 'Webmarket - Magento Theme for Online Shop Preview - by ProteusThemeS',
+		'title' => 'Webmarket - Magento Theme for Online Shop Preview - by ProteusThemeSs',
 		'title_short' => 'Webmarket Magento',
 		'url' => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
 	),
