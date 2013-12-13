@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Constants
+ * Constants / config
  */
-
-define( "BASE_URL" , 'http://www.proteusthemes.com/themes/' );
+define( "BASE_DOMAIN" , 'http://www.proteusthemes.com/' );
+define( "BASE_URL" , BASE_DOMAIN . 'themes/' );
 define( "ENVATO_USERNAME" , 'ProteusThemes' ); // for the refferal link
 
 
@@ -30,40 +30,44 @@ $items = array(
 	// http://www.proteusthemes.com/themes/hairpress
 	'hairpress' => array(
 		// title which will be shown in the browser
-		'title' => 'Hairpress - HTML Template for Hair Salons Preview - by ProteusThemes',
+		'title' => 'Hairpress - HTML Template for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		// short title is used in the drop-down menu
 		'title_short' => 'Hairpress HTML',
 		// needs any explanation? URL to your item in ThemeForest
 		'url' => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346'
 	),
 	'hairpress-wp' => array(
-		'title' => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ProteusThemes',
+		'title' => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Hairpress WP',
 		'url' => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496'
 	),
 	'webmarket-html' => array(
-		'title' => 'Webmarket - HTML Template for Online Shop Preview - by ProteusThemes',
+		'title' => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
 		'url' => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
 	),
 	'webmarket-magento' => array(
-		'title' => 'Webmarket - Magento Theme for Online Shop Preview - by ProteusThemes',
+		'title' => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
 		'url' => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
 	),
 );
 
+
+/**
+ * Check for current item
+ */
 if( key_exists( @$_GET['theme'], $items ) ) {
 	$item = $items[$_GET['theme']];
 	$theme = $_GET['theme'];
 	
 } else {
 	$item = array(
-		'title' => 'Theme Preview - by ProteusThemes',
+		'title' => 'Theme Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Theme Preview',
-		'url' => 'http://themeforest.net/user/ProteusThemes/portfolio'
+		'url' => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio'
 	);
-	$theme = 'undefined';
+	$theme = $item['url'];
 }
 
 /**
@@ -71,6 +75,20 @@ if( key_exists( @$_GET['theme'], $items ) ) {
  */
 function site_url( $uri = "" ) {
 	return BASE_URL . $uri;
+}
+
+
+/**
+ * Can show the site URL of portfolio of the item
+ * @param  string $uri [description]
+ * @return [type]      [description]
+ */
+function iframe_url( $uri = '' ) {
+	if ( false === strstr( $uri, '://' ) ) {
+		return site_url( $uri );
+	} else {
+		return $uri;
+	}
 }
 
 
@@ -108,24 +126,32 @@ function site_url( $uri = "" ) {
 		$(document).ready(function() {
 			//function to fix height of iframe!
 			var calcHeight = function() {
-				var headerDimensions = $('#custom-preview-bar').height();
+				var headerDimensions ;
+				if( $('#custom-preview-bar').is(':visible') ) {
+					headerDimensions = $('#custom-preview-bar').outerHeight();
+				} else {
+					headerDimensions = 0;
+				}
 				$('#main-preview-frame').height($(window).height() - headerDimensions);
+				console.log(headerDimensions);
 			}
 
-			$(window).resize(function() {
-				calcHeight();
-			}).load(function() {
-				calcHeight();
-			});
+			$(window)
+				.resize(function() {
+					calcHeight();
+				})
+				.load(function() {
+					calcHeight();
+				});
 			
 			// dropdown menu
-			$(document).ready(function() {
-				$('.selectable').hover(function() {
-					$(this).find('.other-themes').stop(true, true).slideDown(250);
-				}, function() {
-					$(this).find('.other-themes').stop(true, true).delay(100).slideUp();
-				});
-			});
+			// $(document).ready(function() {
+			// 	$('.selectable').hover(function() {
+			// 		$(this).find('.other-themes').stop(true, true).slideDown(250);
+			// 	}, function() {
+			// 		$(this).find('.other-themes').stop(true, true).delay(100).slideUp();
+			// 	});
+			// });
 		});
 
 		</script>
@@ -149,9 +175,9 @@ function site_url( $uri = "" ) {
 		</div>
 		<div class="right">
 			<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"><img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" /></a>
-			<a href="<?php echo site_url( $theme ); ?>" class="close" title="Close This Frame"><img src="preview-bar/images/close.png" alt="Close the bar" width="25" height="59" /></a>
+			<a href="<?php echo site_url( $theme ); ?>" class="close" title="Close This Frame">×</a>
 		</div>
 	</div>
-	<iframe src="<?php echo site_url( $theme ); ?>" frameborder="0" id="main-preview-frame"></iframe>
+	<iframe src="<?php echo iframe_url( $theme ); ?>" frameborder="0" id="main-preview-frame"></iframe>
 </body>
 </html>
