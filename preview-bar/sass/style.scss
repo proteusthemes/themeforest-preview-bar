@@ -1,25 +1,25 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/**
+ * Stylesheets for the Custom Preview Bar
+ */
 
+// Sure, lock and load Compass
 @import "compass/css3";
 
-html {
-  font-size: 62.5%;
-}
+// Variables
+$height: 59px;
+
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-size: 1.4rem;
 }
 
 
 #custom-preview-bar {
-  height: 59px;
+  height: $height;
   margin: 0;
   background-color: #2e343a;
   @include background(linear-gradient(to bottom, #2e343a, #21262b));
@@ -28,11 +28,11 @@ body {
   position: relative;
   z-index: 99999;
   text-align: center;
-  
+
   > a,
   > div {
     @include inline-block;
-    max-height: 59px !important;
+    max-height: $height;
   }
   
   .logo {
@@ -42,7 +42,7 @@ body {
   .right {
     float: right;
     margin-right: 20px;
-    line-height: 59px;
+    line-height: $height;
   }
   
   .center {
@@ -76,9 +76,17 @@ body {
       top: 55%;
       border-color: #cccfd1 transparent transparent transparent;
     }
+    &:hover {
+      .other-themes {
+        visibility: visible;
+        @include opacity(1);
+        @include transform(translateY(0));
+      }
+    }
   }
   .other-themes {
-    display: none;
+    visibility: hidden;
+    @include opacity(0);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -88,6 +96,8 @@ body {
     right: 0;
     @include border-radius(0 0 5px 5px);
     @include box-shadow(0 3px 3px rgba(0,0,0,.2));
+    @include transition(all 0.2s ease);
+    @include transform(translateY(-10px));
     
     li {
       a {
@@ -109,12 +119,20 @@ body {
   }
   
   .close {
-    @include opacity(0.25);
-    @include transition(opacity 0.3s ease-in-out);
+    color: #bbb;
+    color: rgba(255,255,255,0.67);
+    @include transition(color 0.2s ease);
     margin-left: 10px;
+    font-weight: bold;
+    line-height: $height;
+    display: inline-block;
+    height: $height;
+    vertical-align: top;
+    font-size: 35px;
+    text-decoration: none !important;
     
     &:hover {
-      @include opacity(1);
+      color: #fff;
     }
   }
   .purchase {
@@ -124,11 +142,61 @@ body {
       @include opacity(0.9);
     }
   }
+  @media (max-width: 950px) {
+    $nav-height: 49px;
+    height: $nav-height;
+    
+    > a,
+    > div {
+      max-height: $nav-height;
+    }
+    .close {
+      height: $nav-height;
+      line-height: $nav-height;
+    }
+    .right {
+      line-height: $nav-height;
+    }
+    .selectable {
+      margin-top: ($nav-height - 38px)/2;
+    }
+  }
+  @media (max-width: 790px) {
+    text-align: left;
+    padding-left: 20px;
+
+    .logo {
+      display: none;
+    }
+  }
+  @media (max-width: 475px) {
+    $nav-height: 40px;
+    height: $nav-height;
+    text-align: center;
+
+    .center {
+      display: none;
+    }
+    .right {
+      float: none;
+      line-height: $nav-height;
+    }
+    .close {
+      height: $nav-height;
+      line-height: $nav-height;
+      font-size: 25px;
+    }
+  }
+
 }
 img {
   margin: 0;
   padding: 0;
   border: none;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 
