@@ -13,3 +13,7 @@ It is easy to setup this custom bar.
 ### Customize
 
 Sure, you will want to customize your navbar. It is build with the Compass/SASS, so if it will be the easiest option to change the `preview-bar/sass/style.scss` which will be compiles to the minified CSS using `compass build`.
+
+### Design
+
+The initial design in PSD was created by [Jaka Šmid](http://www.spaka.si/).
