@@ -48,7 +48,7 @@ $items = array(
 	),
 	'webmarket-wp' => array(
 		'title' => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
-		'title_short' => 'Webmarket WP + WooCommerce',
+		'title_short' => 'Webmarket WP + Woo',
 		'url' => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
 	),
 	'webmarket-magento' => array(
