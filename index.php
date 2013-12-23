@@ -46,11 +46,16 @@ $items = array(
 		'title_short' => 'Webmarket HTML',
 		'url' => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
 	),
+	'webmarket-wp' => array(
+		'title' => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
+		'title_short' => 'Webmarket WordPress + WooCommerce',
+		'url' => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
+	),
+	),
 	'webmarket-magento' => array(
 		'title' => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
 		'url' => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
-	),
 );
 
 
