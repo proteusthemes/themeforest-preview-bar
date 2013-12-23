@@ -171,8 +171,8 @@ function iframe_url( $uri = '' ) {
 				<div class="selectable">
 					<?php echo $item['title_short']; ?>
 					<ul class="other-themes">
-						<?php foreach($items as $slug => $item) : ?> 
-						<li><a href="<?php echo site_url('?theme=' . $slug); ?>"><?php echo $item['title_short']; ?></a></li>
+						<?php foreach($items as $slug => $single_item) : ?> 
+						<li><a href="<?php echo site_url('?theme=' . $slug); ?>"><?php echo $single_item['title_short']; ?></a></li>
 					<?php endforeach; ?> 
 				</ul>
 			</div>
