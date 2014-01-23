@@ -25,8 +25,6 @@ if( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
  * Array of our themes
  */
 $items = array(
-	// key is the folder relative the the BASE_URL contant above. 'hairpress' here will open up the:
-	// http://www.proteusthemes.com/themes/hairpress
 	'hairpress' => array(
 		// title which will be shown in the browser
 		'title'       => 'Hairpress - HTML Template for Hair Salons Preview - by ' . ENVATO_USERNAME,
@@ -49,20 +47,20 @@ $items = array(
 		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html',
 		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
 	),
-	'webmarket-wp' => array(
-		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
-		'title_short' => 'Webmarket WP + Woo',
-		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
-		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
-	),
 	'webmarket-magento' => array(
 		'title'       => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-magento',
 		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
 	),
+	'webmarket-wp' => array(
+		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
+		'title_short' => 'Webmarket WP + Woo',
+		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
+		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
+	),
 );
-
+$items = array_reverse( $items );
 
 /**
  * Check for current item
