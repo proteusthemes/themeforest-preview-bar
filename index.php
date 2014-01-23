@@ -21,7 +21,6 @@ if( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
 }
 
 
-
 /**
  * Array of our themes
  */
@@ -30,31 +29,37 @@ $items = array(
 	// http://www.proteusthemes.com/themes/hairpress
 	'hairpress' => array(
 		// title which will be shown in the browser
-		'title' => 'Hairpress - HTML Template for Hair Salons Preview - by ' . ENVATO_USERNAME,
+		'title'       => 'Hairpress - HTML Template for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		// short title is used in the drop-down menu
 		'title_short' => 'Hairpress HTML',
+		// URL to demo site
+		'demo_url'    => 'http://www.proteusthemes.com/themes/hairpress',
 		// needs any explanation? URL to your item in ThemeForest
-		'url' => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346'
+		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346'
 	),
 	'hairpress-wp' => array(
-		'title' => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ' . ENVATO_USERNAME,
+		'title'       => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Hairpress WP',
-		'url' => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496'
+		'demo_url'    => 'http://hairpress.demo.proteusthemes.com',
+		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496'
 	),
 	'webmarket-html' => array(
-		'title' => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
+		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
-		'url' => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
+		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html',
+		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
 	),
 	'webmarket-wp' => array(
-		'title' => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
+		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket WP + Woo',
-		'url' => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
+		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
+		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
 	),
 	'webmarket-magento' => array(
-		'title' => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
+		'title'       => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
-		'url' => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
+		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-magento',
+		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
 	),
 );
 
@@ -63,16 +68,15 @@ $items = array(
  * Check for current item
  */
 if( key_exists( @$_GET['theme'], $items ) ) {
-	$item = $items[$_GET['theme']];
-	$theme = $_GET['theme'];
-	
+	$item  = $items[$_GET['theme']];
+
 } else {
 	$item = array(
-		'title' => 'Theme Preview - by ' . ENVATO_USERNAME,
+		'title'       => 'Theme Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Theme Preview',
-		'url' => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio'
+		'url'         => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio',
+		'demo_url'    => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio'
 	);
-	$theme = $item['url'];
 }
 
 /**
@@ -80,20 +84,6 @@ if( key_exists( @$_GET['theme'], $items ) ) {
  */
 function site_url( $uri = "" ) {
 	return BASE_URL . $uri;
-}
-
-
-/**
- * Can show the site URL of portfolio of the item
- * @param  string $uri [description]
- * @return [type]      [description]
- */
-function iframe_url( $uri = '' ) {
-	if ( false === strstr( $uri, '://' ) ) {
-		return site_url( $uri );
-	} else {
-		return $uri;
-	}
 }
 
 
@@ -116,17 +106,17 @@ function iframe_url( $uri = '' ) {
 			<?php echo $js; ?>
 		</script>
 	<?php endif; ?>
-	
+
 	<!--  = CSS stylesheets =  -->
 	<link rel="stylesheet" href="preview-bar/stylesheets/style.css" type="text/css" media="all" />
 
 	<!-- Fav icon -->
 	<link rel="shortcut icon" href="http://www.proteusthemes.com/favicon.ico">
-	
+
 	<!--  = JS =  -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 
-	
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//function to fix height of iframe!
@@ -138,7 +128,7 @@ function iframe_url( $uri = '' ) {
 					headerDimensions = 0;
 				}
 				$('#main-preview-frame').height($(window).height() - headerDimensions);
-				console.log(headerDimensions);
+				// console.log(headerDimensions);
 			}
 
 			$(window)
@@ -148,18 +138,8 @@ function iframe_url( $uri = '' ) {
 				.load(function() {
 					calcHeight();
 				});
-			
-			// dropdown menu
-			// $(document).ready(function() {
-			// 	$('.selectable').hover(function() {
-			// 		$(this).find('.other-themes').stop(true, true).slideDown(250);
-			// 	}, function() {
-			// 		$(this).find('.other-themes').stop(true, true).delay(100).slideUp();
-			// 	});
-			// });
 		});
-
-		</script>
+	</script>
 	</head>
 
 	<body>
@@ -171,18 +151,17 @@ function iframe_url( $uri = '' ) {
 				<div class="selectable">
 					<?php echo $item['title_short']; ?>
 					<ul class="other-themes">
-						<?php foreach($items as $slug => $single_item) : ?> 
+						<?php foreach($items as $slug => $single_item) : ?>
 						<li><a href="<?php echo site_url('?theme=' . $slug); ?>"><?php echo $single_item['title_short']; ?></a></li>
-					<?php endforeach; ?> 
-				</ul>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 			</div>
-
+			<div class="right">
+				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"><img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" /></a>
+				<a href="<?php echo $itmes['demo_url']; ?>" class="close" title="Close This Frame">×</a>
+			</div>
 		</div>
-		<div class="right">
-			<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"><img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" /></a>
-			<a href="<?php echo site_url( $theme ); ?>" class="close" title="Close This Frame">×</a>
-		</div>
-	</div>
-	<iframe src="<?php echo iframe_url( $theme ); ?>" frameborder="0" id="main-preview-frame"></iframe>
-</body>
+		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
+	</body>
 </html>
