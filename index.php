@@ -163,7 +163,7 @@ function site_url( $uri = "" ) {
 			</div>
 			<div class="right">
 				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"><img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" /></a>
-				<a href="<?php echo $itmes['demo_url']; ?>" class="close" title="Close This Frame">×</a>
+				<a href="<?php echo $item['demo_url']; ?>" class="close" title="Close This Frame">×</a>
 			</div>
 		</div>
 		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
