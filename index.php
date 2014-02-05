@@ -31,7 +31,7 @@ $items = array(
 		// short title is used in the drop-down menu
 		'title_short' => 'Hairpress HTML',
 		// URL to demo site
-		'demo_url'    => 'http://www.proteusthemes.com/themes/hairpress',
+		'demo_url'    => 'http://www.proteusthemes.com/themes/hairpress/',
 		// needs any explanation? URL to your item in ThemeForest
 		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346'
 	),
@@ -44,13 +44,13 @@ $items = array(
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
-		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html',
+		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html/',
 		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
 	),
 	'webmarket-magento' => array(
 		'title'       => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
-		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-magento',
+		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-magento/',
 		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
 	),
 	'webmarket-wp' => array(
@@ -58,6 +58,12 @@ $items = array(
 		'title_short' => 'Webmarket WP + Woo',
 		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
 		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
+	),
+	'organique-html' => array(
+		'title'       => 'Organique - HTML Template For Healthy Food Store Preview - by ' . ENVATO_USERNAME,
+		'title_short' => 'Organique HTML',
+		'demo_url'    => 'http://www.proteusthemes.com/themes/organique-html/',
+		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086'
 	),
 );
 $items = array_reverse( $items );
