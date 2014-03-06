@@ -67,7 +67,7 @@ $items = array(
 	),
 	'carpress-wp' => array(
 		'title'       => 'Carpress - WordPress Theme For Mechanic Workshops Preview - by ' . ENVATO_USERNAME,
-		'title_short' => 'Carpress WP ',
+		'title_short' => 'Carpress WP',
 		'demo_url'    => 'http://carpress.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577'
 	),
