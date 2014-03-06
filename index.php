@@ -65,6 +65,12 @@ $items = array(
 		'demo_url'    => 'http://www.proteusthemes.com/themes/organique-html/',
 		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086'
 	),
+	'carpress-wp' => array(
+		'title'       => 'Carpress - WordPress Theme For Mechanic Workshops Preview - by ' . ENVATO_USERNAME,
+		'title_short' => 'Carpress WP',
+		'demo_url'    => 'http://carpress.demo.proteusthemes.com/',
+		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577'
+	),
 );
 $items = array_reverse( $items );
 
