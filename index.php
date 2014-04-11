@@ -50,7 +50,7 @@ $items = array(
 	'webmarket-magento' => array(
 		'title'       => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
-		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-magento/',
+		'demo_url'    => 'http://proteus.pervisio.com/webmarket/',
 		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
 	),
 	'webmarket-wp' => array(
