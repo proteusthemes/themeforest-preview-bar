@@ -77,6 +77,12 @@ $items = array(
 		'demo_url'    => 'http://carpress.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577'
 	),
+	'readable-html' => array(
+		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
+		'title_short' => 'Readable HTML',
+		'demo_url'    => 'http://www.proteusthemes.com/themes/readable-html/',
+		'url'         => 'http://themeforest.net/'
+	),
 );
 $items = array_reverse( $items );
 
