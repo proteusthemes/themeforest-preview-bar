@@ -187,8 +187,8 @@ body {
       font-size: 25px;
     }
   }
-
 }
+
 img {
   margin: 0;
   padding: 0;
@@ -199,10 +199,47 @@ img {
   max-height: 100%;
 }
 
-
 #main-preview-frame {
   width: 100%;
   margin: 0;
   padding: 0;
   height: 999px;
+}
+
+.purchase {
+  position: relative;
+  text-decoration: none;
+}
+
+.purchase__text {
+  position: absolute;
+  left: 55px;
+  text-transform: uppercase;
+  font-family: "Arial";
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 950px) {
+    left: 42px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 475px) {
+    font-size: 11px;
+    left: 33px;
+  }
+}
+
+.fb_iframe_widget {
+  margin: 0 15px 0 0;
+  top: -43px;
+
+  @media (max-width: 950px) {
+    top: -33px;
+  }
+
+  @media (max-width: 475px) {
+    top: -25px;
+  }
 }
