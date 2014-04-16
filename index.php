@@ -33,55 +33,65 @@ $items = array(
 		// URL to demo site
 		'demo_url'    => 'http://www.proteusthemes.com/themes/hairpress/',
 		// needs any explanation? URL to your item in ThemeForest
-		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346'
+		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346',
+		// Price of the item
+		'price'       => '$16'
 	),
 	'hairpress-wp' => array(
 		'title'       => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Hairpress WP',
 		'demo_url'    => 'http://hairpress.demo.proteusthemes.com',
-		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496'
+		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496',
+		'price'       => '$55'
 	),
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html/',
-		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539'
+		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539',
+		'price'       => '$15'
 	),
 	'webmarket-magento' => array(
 		'title'       => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
 		'demo_url'    => 'http://proteus.pervisio.com/webmarket/',
-		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713'
+		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713',
+		'price'       => '$80'
 	),
 	'webmarket-wp' => array(
 		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket WP + Woo',
 		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
-		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728'
+		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728',
+		'price'       => '$55'
 	),
 	'organique-html' => array(
 		'title'       => 'Organique - HTML Template For Healthy Food Store Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/organique-html/',
-		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086'
+		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086',
+		'price'       => '$16'
 	),
 	'organique-wp' => array(
 		'title'       => 'Organique - WordPress Theme For Healthy Food Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique WP + Woo',
 		'demo_url'    => 'http://organique.demo.proteusthemes.com/',
-		'url'         => 'http://themeforest.net/item/organique-wordpress-theme-for-healthy-food-shop/7312458'
+		'url'         => 'http://themeforest.net/item/organique-wordpress-theme-for-healthy-food-shop/7312458',
+		'price'       => '$55'
 	),
 	'carpress-wp' => array(
 		'title'       => 'Carpress - WordPress Theme For Mechanic Workshops Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Carpress WP',
 		'demo_url'    => 'http://carpress.demo.proteusthemes.com/',
-		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577'
+		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577',
+		'price'       => '$55'
 	),
 	'readable-html' => array(
 		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/readable-html/',
-		'url'         => 'http://themeforest.net/'
+		'url'         => 'http://themeforest.net/',
+		'price'       => '$15'
 	),
 );
 $items = array_reverse( $items );
@@ -97,7 +107,8 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 		'title'       => 'Theme Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Theme Preview',
 		'url'         => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio',
-		'demo_url'    => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio'
+		'demo_url'    => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio',
+		'price'       => ''
 	);
 }
 
@@ -165,6 +176,16 @@ function site_url( $uri = "" ) {
 	</head>
 
 	<body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
 		<div id="custom-preview-bar">
 			<a class="logo" href="http://www.proteusthemes.com/" target="_blank">
 				<img src="preview-bar/images/logo.png" alt="ProteusThemes - www.proteusthemes.com" width="262" height="59" />
@@ -180,7 +201,11 @@ function site_url( $uri = "" ) {
 				</div>
 			</div>
 			<div class="right">
-				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"><img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" /></a>
+				<div class="fb-like" data-href="https://www.facebook.com/ProteusThemes" data-width="90" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase">
+					<img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" />
+					<span class="purchase__text">Purchase &nbsp;(<?php echo $item['price']; ?>)</span>
+				</a>
 				<a href="<?php echo $item['demo_url']; ?>" class="close" title="Close This Frame">×</a>
 			</div>
 		</div>

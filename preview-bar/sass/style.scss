@@ -21,20 +21,19 @@ body {
 #custom-preview-bar {
   height: $height;
   margin: 0;
-  background-color: #2e343a;
-  @include background(linear-gradient(to bottom, #2e343a, #21262b));
+  background: #2e343a linear-gradient(to bottom, #2e343a, #21262b);
   border-bottom: 1px solid #000;
-  @include box-shadow(0 1px 2px rgba(0,0,0,0.5));
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
   position: relative;
   z-index: 99999;
   text-align: center;
 
   > a,
   > div {
-    @include inline-block;
+    display: inline-block;
     max-height: $height;
   }
-  
+
   .logo {
     margin-left: 20px;
     float: left;
@@ -44,7 +43,7 @@ body {
     margin-right: 20px;
     line-height: $height;
   }
-  
+
   .center {
     color: #cccfd1;
     text-align: left;
@@ -52,13 +51,13 @@ body {
   .selectable {
     background-color: #4a525a;
     border: 3px solid #141619;
-    @include border-radius(5px);
+    border-radius: 5px;
     padding: 8px 14px;
     margin-top: 11px;
     min-width: 200px;
-    @include box-shadow(0 1px 0 rgba(255,255,255,0.15));
+    box-shadow: 0 1px 0 rgba(255,255,255,0.15);
     position: relative;
-    
+
     &:after,
     &:before {
       position: absolute;
@@ -79,14 +78,14 @@ body {
     &:hover {
       .other-themes {
         visibility: visible;
-        @include opacity(1);
-        @include transform(translateY(0));
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   }
   .other-themes {
     visibility: hidden;
-    @include opacity(0);
+    opacity: 0;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -94,11 +93,11 @@ body {
     top: 97%;
     left: 0;
     right: 0;
-    @include border-radius(0 0 5px 5px);
-    @include box-shadow(0 3px 3px rgba(0,0,0,.2));
-    @include transition(all 0.2s ease);
-    @include transform(translateY(-10px));
-    
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 3px 3px rgba(0,0,0,.2);
+    transition: all 0.2s ease;
+    transform: translateY(-10px);
+
     li {
       a {
         display: block;
@@ -106,22 +105,22 @@ body {
         color: #cccfd1;
         padding: 8px 14px;
         text-decoration: none;
-        
+
         &:hover {
           background-color: #cccfd1;
           color: #4a525a;
         }
       }
       &:last-of-type a {
-        @include border-radius(0 0 5px 5px);
+        border-radius: 0 0 5px 5px;
       }
     }
   }
-  
+
   .close {
     color: #bbb;
     color: rgba(255,255,255,0.67);
-    @include transition(color 0.2s ease);
+    transition: color 0.2s ease;
     margin-left: 10px;
     font-weight: bold;
     line-height: $height;
@@ -130,22 +129,22 @@ body {
     vertical-align: top;
     font-size: 35px;
     text-decoration: none !important;
-    
+
     &:hover {
       color: #fff;
     }
   }
   .purchase {
-    @include transition(opacity 0.2s ease);
-    
+    transition: opacity 0.2s ease;
+
     &:hover {
-      @include opacity(0.9);
+      opacity: .9;
     }
   }
   @media (max-width: 950px) {
     $nav-height: 49px;
     height: $nav-height;
-    
+
     > a,
     > div {
       max-height: $nav-height;
@@ -187,8 +186,8 @@ body {
       font-size: 25px;
     }
   }
-
 }
+
 img {
   margin: 0;
   padding: 0;
@@ -199,10 +198,50 @@ img {
   max-height: 100%;
 }
 
-
 #main-preview-frame {
   width: 100%;
   margin: 0;
   padding: 0;
   height: 999px;
+}
+
+.purchase {
+  position: relative;
+  text-decoration: none;
+}
+
+.purchase__text {
+  position: absolute;
+  left: 41px;
+  text-transform: uppercase;
+  font-family: Verdana, Arial, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  letter-spacing: -0.03em;
+  right: 5px;
+
+  @media (max-width: 950px) {
+    font-size: 11px;
+    left: 34px;
+  }
+
+  @media (max-width: 475px) {
+    font-size: 10px;
+    left: 27px;
+  }
+}
+
+.fb_iframe_widget {
+  margin: 0 15px 0 0;
+  top: -43px;
+
+  @media (max-width: 950px) {
+    top: -33px;
+  }
+
+  @media (max-width: 475px) {
+    top: -25px;
+  }
 }
