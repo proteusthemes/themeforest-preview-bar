@@ -90,7 +90,7 @@ $items = array(
 		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/readable-html/',
-		'url'         => 'http://themeforest.net/',
+		'url'         => 'http://themeforest.net/item/readable-blog-template-focused-on-readability/7499064',
 		'price'       => '$15'
 	),
 );
