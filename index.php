@@ -93,6 +93,13 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/readable-blog-template-focused-on-readability/7499064',
 		'price'       => '$15'
 	),
+	'readable-html' => array(
+		'title'       => 'Readable - WordPress Theme Focused on Readability Preview - by ' . ENVATO_USERNAME,
+		'title_short' => 'Readable WP',
+		'demo_url'    => 'http://readable.demo.proteusthemes.com/',
+		'url'         => 'http://themeforest.net/item/readable-wordpress-theme-focused-on-readability/7712790',
+		'price'       => '$40'
+	),
 );
 $items = array_reverse( $items );
 
@@ -135,9 +142,9 @@ function site_url( $uri = "" ) {
 	<meta name="author" content="ProteusNet d.o.o.">
 
 	<?php if( NULL !== $js ) : ?>
-		<script type="text/javascript">
-			<?php echo $js; ?>
-		</script>
+	<script type="text/javascript">
+		<?php echo $js; ?>
+	</script>
 	<?php endif; ?>
 
 	<!--  = CSS stylesheets =  -->
@@ -147,44 +154,36 @@ function site_url( $uri = "" ) {
 	<link rel="shortcut icon" href="http://www.proteusthemes.com/favicon.ico">
 
 	<!--  = JS =  -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
 
 
 	<script type="text/javascript">
-		$(document).ready(function() {
-			//function to fix height of iframe!
+		document.addEventListener( 'DOMContentLoaded', function() {
 			var calcHeight = function() {
-				var headerDimensions ;
-				if( $('#custom-preview-bar').is(':visible') ) {
-					headerDimensions = $('#custom-preview-bar').outerHeight();
-				} else {
-					headerDimensions = 0;
-				}
-				$('#main-preview-frame').height($(window).height() - headerDimensions);
-				// console.log(headerDimensions);
-			}
+				var previewBar = document.getElementById( 'custom-preview-bar' ),
+					previewFrame = document.getElementById( 'main-preview-frame' );
 
-			$(window)
-				.resize(function() {
-					calcHeight();
-				})
-				.load(function() {
-					calcHeight();
-				});
-		});
+				previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
+			};
+			calcHeight();
+
+			window.addEventListener( 'resize', function () {
+				calcHeight();
+			} );
+		} );
 	</script>
 	</head>
 
 	<body>
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 
 		<div id="custom-preview-bar">
 			<a class="logo" href="http://www.proteusthemes.com/" target="_blank">
