@@ -93,7 +93,7 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/readable-blog-template-focused-on-readability/7499064',
 		'price'       => '$15'
 	),
-	'readable-html' => array(
+	'readable-wp' => array(
 		'title'       => 'Readable - WordPress Theme Focused on Readability Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable WP',
 		'demo_url'    => 'http://readable.demo.proteusthemes.com/',
