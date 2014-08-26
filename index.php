@@ -35,70 +35,70 @@ $items = array(
 		// needs any explanation? URL to your item in ThemeForest
 		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346',
 		// Price of the item
-		'price'       => '$16'
+		'price'       => '$17'
 	),
 	'hairpress-wp' => array(
 		'title'       => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Hairpress WP',
 		'demo_url'    => 'http://hairpress.demo.proteusthemes.com',
 		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496',
-		'price'       => '$55'
+		'price'       => '$58'
 	),
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html/',
 		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539',
-		'price'       => '$15'
+		'price'       => '$16'
 	),
 	'webmarket-magento' => array(
 		'title'       => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket Magento',
 		'demo_url'    => 'http://proteus.pervisio.com/webmarket/',
 		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713',
-		'price'       => '$80'
+		'price'       => '$84'
 	),
 	'webmarket-wp' => array(
 		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket WP + Woo',
 		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
 		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728',
-		'price'       => '$55'
+		'price'       => '$58'
 	),
 	'organique-html' => array(
 		'title'       => 'Organique - HTML Template For Healthy Food Store Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/organique-html/',
 		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086',
-		'price'       => '$16'
+		'price'       => '$17'
 	),
 	'organique-wp' => array(
 		'title'       => 'Organique - WordPress Theme For Healthy Food Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique WP + Woo',
 		'demo_url'    => 'http://organique.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/organique-wordpress-theme-for-healthy-food-shop/7312458',
-		'price'       => '$55'
+		'price'       => '$58'
 	),
 	'carpress-wp' => array(
 		'title'       => 'Carpress - WordPress Theme For Mechanic Workshops Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Carpress WP',
 		'demo_url'    => 'http://carpress.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577',
-		'price'       => '$55'
+		'price'       => '$58'
 	),
 	'readable-html' => array(
 		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/readable-html/',
 		'url'         => 'http://themeforest.net/item/readable-blog-template-focused-on-readability/7499064',
-		'price'       => '$15'
+		'price'       => '$16'
 	),
 	'readable-wp' => array(
 		'title'       => 'Readable - WordPress Theme Focused on Readability Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable WP',
 		'demo_url'    => 'http://readable.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/readable-wordpress-theme-focused-on-readability/7712790',
-		'price'       => '$40'
+		'price'       => '$43'
 	),
 );
 $items = array_reverse( $items );
