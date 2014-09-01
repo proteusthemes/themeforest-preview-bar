@@ -51,13 +51,6 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539',
 		'price'       => '$16'
 	),
-	'webmarket-magento' => array(
-		'title'       => 'Webmarket - Magento Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
-		'title_short' => 'Webmarket Magento',
-		'demo_url'    => 'http://proteus.pervisio.com/webmarket/',
-		'url'         => 'http://themeforest.net/item/webmarket-magento-theme-for-online-shop/6382713',
-		'price'       => '$84'
-	),
 	'webmarket-wp' => array(
 		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket WP + Woo',
