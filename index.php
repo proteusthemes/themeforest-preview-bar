@@ -93,6 +93,13 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/readable-wordpress-theme-focused-on-readability/7712790',
 		'price'       => '$43'
 	),
+	'restaurant-wp' => array(
+		'title'       => 'Dining Restaurant - WordPress Theme For Chefs - by ' . ENVATO_USERNAME,
+		'title_short' => 'Dining Restaurant WP',
+		'demo_url'    => 'http://restaurant.demo.proteusthemes.com/',
+		'url'         => 'http://themeforest.net/item/dining-restaurant-wordpress-theme-for-chefs/8294419',
+		'price'       => '$58'
+	),
 );
 $items = array_reverse( $items );
 
