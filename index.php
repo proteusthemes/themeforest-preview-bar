@@ -197,7 +197,7 @@ function site_url( $uri = "" ) {
 			</div>
 			<div class="right">
 				<div class="fb-like" data-href="https://www.facebook.com/ProteusThemes" data-width="90" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase">
+				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"<?php if ( 'carpress-wp' === $_GET['theme'] ) : ?>  onclick="trackOutboundLink('<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>'); return false;"<?php endif; ?>>
 					<img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" />
 					<span class="purchase__text">Purchase &nbsp;(<?php echo $item['price']; ?>)</span>
 				</a>
@@ -205,5 +205,32 @@ function site_url( $uri = "" ) {
 			</div>
 		</div>
 		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
+		<?php if ( 'carpress-wp' === $_GET['theme'] ) : ?>
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-33538073-10', 'auto', {'allowLinker': true});
+		ga('require', 'linker');
+		ga('linker:autoLink', ['carpress.demo.proteusthemes.com'] );
+		ga('send', 'pageview');
+
+
+		/**
+		* Function that tracks a click on an outbound link in Google Analytics.
+		* This function takes a valid URL string as an argument, and uses that URL string
+		* as the event label.
+		*/
+		var trackOutboundLink = function(url) {
+			ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+				function () {
+					document.location = url;
+				}
+			});
+		}
+		</script>
+		<?php endif; ?>
 	</body>
 </html>
