@@ -43,6 +43,12 @@ $items = array(
 		'demo_url'    => 'http://hairpress.demo.proteusthemes.com',
 		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496',
 		'price'       => '$58',
+		'analytics'   => array(
+			'tracking_id'   => 'UA-33538073-4',
+			'allowed_domains' => array(
+				'hairpress.demo.proteusthemes.com'
+			),
+		),
 	),
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
@@ -105,6 +111,12 @@ $items = array(
 		'demo_url'    => 'http://restaurant.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/dining-restaurant-wordpress-theme-for-chefs/8294419',
 		'price'       => '$58',
+		'analytics'   => array(
+			'tracking_id'   => 'UA-33538073-11',
+			'allowed_domains' => array(
+				'restaurant.demo.proteusthemes.com'
+			),
+		),
 	),
 );
 $items = array_reverse( $items );
