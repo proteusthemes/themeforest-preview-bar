@@ -35,70 +35,88 @@ $items = array(
 		// needs any explanation? URL to your item in ThemeForest
 		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346',
 		// Price of the item
-		'price'       => '$17'
+		'price'       => '$17',
 	),
 	'hairpress-wp' => array(
 		'title'       => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Hairpress WP',
 		'demo_url'    => 'http://hairpress.demo.proteusthemes.com',
 		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496',
-		'price'       => '$58'
+		'price'       => '$58',
+		'analytics'   => array(
+			'tracking_id'   => 'UA-33538073-4',
+			'allowed_domains' => array(
+				'hairpress.demo.proteusthemes.com'
+			),
+		),
 	),
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html/',
 		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539',
-		'price'       => '$16'
+		'price'       => '$16',
 	),
 	'webmarket-wp' => array(
 		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket WP + Woo',
 		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
 		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728',
-		'price'       => '$58'
+		'price'       => '$58',
 	),
 	'organique-html' => array(
 		'title'       => 'Organique - HTML Template For Healthy Food Store Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/organique-html/',
 		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086',
-		'price'       => '$17'
+		'price'       => '$17',
 	),
 	'organique-wp' => array(
 		'title'       => 'Organique - WordPress Theme For Healthy Food Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique WP + Woo',
 		'demo_url'    => 'http://organique.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/organique-wordpress-theme-for-healthy-food-shop/7312458',
-		'price'       => '$58'
+		'price'       => '$58',
 	),
 	'carpress-wp' => array(
 		'title'       => 'Carpress - WordPress Theme For Mechanic Workshops Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Carpress WP',
 		'demo_url'    => 'http://carpress.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577',
-		'price'       => '$58'
+		'price'       => '$58',
+		'analytics'   => array(
+			'tracking_id'   => 'UA-33538073-10',
+			'allowed_domains' => array(
+				'carpress.demo.proteusthemes.com'
+			),
+		),
 	),
 	'readable-html' => array(
 		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable HTML',
 		'demo_url'    => 'http://www.proteusthemes.com/themes/readable-html/',
 		'url'         => 'http://themeforest.net/item/readable-blog-template-focused-on-readability/7499064',
-		'price'       => '$16'
+		'price'       => '$16',
 	),
 	'readable-wp' => array(
 		'title'       => 'Readable - WordPress Theme Focused on Readability Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable WP',
 		'demo_url'    => 'http://readable.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/readable-wordpress-theme-focused-on-readability/7712790',
-		'price'       => '$43'
+		'price'       => '$43',
 	),
 	'restaurant-wp' => array(
 		'title'       => 'Dining Restaurant - WordPress Theme For Chefs - by ' . ENVATO_USERNAME,
 		'title_short' => 'Dining Restaurant WP',
 		'demo_url'    => 'http://restaurant.demo.proteusthemes.com/',
 		'url'         => 'http://themeforest.net/item/dining-restaurant-wordpress-theme-for-chefs/8294419',
-		'price'       => '$58'
+		'price'       => '$58',
+		'analytics'   => array(
+			'tracking_id'   => 'UA-33538073-11',
+			'allowed_domains' => array(
+				'restaurant.demo.proteusthemes.com'
+			),
+		),
 	),
 );
 $items = array_reverse( $items );
@@ -115,7 +133,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 		'title_short' => 'Theme Preview',
 		'url'         => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio',
 		'demo_url'    => 'http://themeforest.net/user/' . ENVATO_USERNAME . '/portfolio',
-		'price'       => ''
+		'price'       => '',
 	);
 }
 
@@ -124,6 +142,15 @@ if( key_exists( @$_GET['theme'], $items ) ) {
  */
 function site_url( $uri = "" ) {
 	return BASE_URL . $uri;
+}
+
+/**
+ * Helper to determine if we should load the analytics script
+ * @param  array  $item
+ * @return boolean
+ */
+function has_analytics( $item ) {
+	return key_exists( 'analytics', $item );
 }
 
 
@@ -154,23 +181,47 @@ function site_url( $uri = "" ) {
 	<link rel="shortcut icon" href="http://www.proteusthemes.com/favicon.ico">
 
 	<script type="text/javascript">
-		document.addEventListener( 'DOMContentLoaded', function() {
-			var calcHeight = function() {
-				var previewBar = document.getElementById( 'custom-preview-bar' ),
-					previewFrame = document.getElementById( 'main-preview-frame' );
+		var calcHeight = function() {
+			var previewBar = document.getElementById( 'custom-preview-bar' ),
+				previewFrame = document.getElementById( 'main-preview-frame' );
 
+			if ( previewFrame && previewBar) {
 				previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
-			};
-			calcHeight();
-
-			window.addEventListener( 'resize', function () {
-				calcHeight();
-			} );
-		} );
+			}
+		};
+		document.addEventListener( 'DOMContentLoaded', calcHeight );
+		window.addEventListener( 'resize', calcHeight );
 	</script>
 	</head>
 
 	<body>
+	<?php if ( has_analytics( $item ) ) : ?>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', '<?php echo $item['analytics']['tracking_id']; ?>', 'auto', {'allowLinker': true});
+			ga('require', 'linker');
+			ga('linker:autoLink', ['<?php echo implode( "', '", $item['analytics'][''] ); ?>carpress.demo.proteusthemes.com'] );
+			ga('send', 'pageview');
+
+
+			/**
+			* Function that tracks a click on an outbound link in Google Analytics.
+			* This function takes a valid URL string as an argument, and uses that URL string
+			* as the event label.
+			*/
+			var trackOutboundLink = function(url) {
+				ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+					function () {
+						document.location = url;
+					}
+				});
+			}
+		</script>
+	<?php endif; ?>
 
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
@@ -197,13 +248,38 @@ function site_url( $uri = "" ) {
 			</div>
 			<div class="right">
 				<div class="fb-like" data-href="https://www.facebook.com/ProteusThemes" data-width="90" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase">
+				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"<?php if ( has_analytics( $item ) ) : ?>  onclick="trackOutboundLink('<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>'); return false;"<?php endif; ?>>
 					<img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" />
 					<span class="purchase__text">Purchase &nbsp;(<?php echo $item['price']; ?>)</span>
 				</a>
 				<a href="<?php echo $item['demo_url']; ?>" class="close" title="Close This Frame">×</a>
 			</div>
 		</div>
+	<?php if ( has_analytics( $item ) ): ?>
+		<div id="iframe-holder"></div>
+		<script>
+			/**
+			 * Dynamically create the iframe with the proper linker for analytics
+			 */
+			var linker;
+
+			function addiFrame(divId, url, opt_hash) {
+				return function(tracker) {
+					window.linker = window.linker || new window.gaplugins.Linker(tracker);
+					var iFrame    = document.createElement('iFrame');
+					iFrame.src    = window.linker.decorate(url, opt_hash);
+					iFrame.id     = 'main-preview-frame';
+					iFrame.setAttribute( 'frameborder', '0' );
+					document.getElementById(divId).appendChild(iFrame);
+					calcHeight();
+				};
+			}
+
+			// Dynamically add the iFrame to the page with proper linker parameters.
+			ga(addiFrame('iframe-holder', '<?php echo $item['demo_url']; ?>'));
+		</script>
+	<?php else : ?>
 		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
+	<?php endif; ?>
 	</body>
 </html>
