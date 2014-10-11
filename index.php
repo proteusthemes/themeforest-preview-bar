@@ -192,6 +192,34 @@ function has_analytics( $item ) {
 		document.addEventListener( 'DOMContentLoaded', calcHeight );
 		window.addEventListener( 'resize', calcHeight );
 	</script>
+
+	<!-- Load the Content Experiment JavaScript API client for the experiment -->
+	<script src="//www.google-analytics.com/cx/api.js?experiment=XmoIy-uHQzCpKW-BAjwVJQ"></script>
+
+	<script>
+		// Ask Google Analytics which variation to show the user.
+		var chosenVariation = cxApi.chooseVariation();
+		console.log(chosenVariation);
+
+		// define variations
+		var pageVariations = [
+			function() {},
+			function () {
+				document.getElementById( 'purcase-btn-test' ).src = 'preview-bar/images/purchase-red.png';
+			},
+			function () {
+				document.getElementById( 'purchase-txt-test' ).innerHTML = 'Buy';
+			},
+			function () {
+				document.getElementById( 'purchase-txt-test' ).innerHTML = 'Buy Now';
+			},
+		];
+
+		// call when dom is ready
+		document.addEventListener('DOMContentLoaded', function() {
+			pageVariations[chosenVariation]();
+		});
+	</script>
 	</head>
 
 	<body>
@@ -255,9 +283,9 @@ function has_analytics( $item ) {
 			</div>
 			<div class="right">
 				<div class="fb-like" data-href="https://www.facebook.com/ProteusThemes" data-width="90" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"<?php if ( has_analytics( $item ) ) : ?>  onclick="trackOutboundLink('<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>'); return false;"<?php endif; ?>>
-					<img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" />
-					<span class="purchase__text">Purchase &nbsp;(<?php echo $item['price']; ?>)</span>
+				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"<?php if ( has_analytics( $item ) ) : ?> onclick="trackOutboundLink('<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>'); return false;"<?php endif; ?>>
+					<img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" id="purcase-btn-test" />
+					<span class="purchase__text"><span id="purchase-txt-test">Purchase</span> &nbsp;(<?php echo $item['price']; ?>)</span>
 				</a>
 				<a href="<?php echo $item['demo_url']; ?>" class="close" title="Close This Frame">×</a>
 			</div>
