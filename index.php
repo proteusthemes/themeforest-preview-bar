@@ -195,18 +195,24 @@ function has_analytics( $item ) {
 	</head>
 
 	<body>
-	<?php if ( has_analytics( $item ) ) : ?>
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-			ga('create', '<?php echo $item['analytics']['tracking_id']; ?>', 'auto', {'allowLinker': true});
 			ga('require', 'linker');
-			ga('linker:autoLink', ['<?php echo implode( "', '", $item['analytics'][''] ); ?>carpress.demo.proteusthemes.com'] );
+
+			// property for the preview bar
+			ga('create', 'UA-33538073-12', 'auto');
 			ga('send', 'pageview');
 
+		<?php if ( has_analytics( $item ) ) : ?>
+			// property for the item being shown
+			ga('create', '<?php echo $item['analytics']['tracking_id']; ?>', 'auto', {'allowLinker': true, 'name': 'itemShown'});
+			ga('linker:autoLink', ['<?php echo implode( "', '", $item['analytics']['allowed_domains'] ); ?>'] );
+			ga('itemShown.send', 'pageview');
+		<?php endif; ?>
 
 			/**
 			* Function that tracks a click on an outbound link in Google Analytics.
@@ -214,14 +220,15 @@ function has_analytics( $item ) {
 			* as the event label.
 			*/
 			var trackOutboundLink = function(url) {
-				ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
-					function () {
-						document.location = url;
-					}
-				});
+				var goToUrl = function () {
+					document.location = url;
+				}
+				ga('send', 'event', 'outbound', 'click', url, {'hitCallback': goToUrl });
+			<?php if ( has_analytics( $item ) ) : ?>
+				ga('itemShown.send', 'event', 'outbound', 'click', url, {'hitCallback': goToUrl });
+			<?php endif; ?>
 			}
 		</script>
-	<?php endif; ?>
 
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
