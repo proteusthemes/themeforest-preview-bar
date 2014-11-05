@@ -3,9 +3,9 @@
 /**
  * Constants / config
  */
-define( "BASE_DOMAIN" , 'http://www.proteusthemes.com/' );
-define( "BASE_URL" , BASE_DOMAIN . 'themes/' );
-define( "ENVATO_USERNAME" , 'ProteusThemes' ); // for the refferal link
+define( 'BASE_DOMAIN' , 'http://www.proteusthemes.com/' );
+define( 'BASE_URL' , BASE_DOMAIN . 'themes/' );
+define( 'ENVATO_USERNAME' , 'ProteusThemes' ); // for the refferal link
 
 
 
@@ -40,13 +40,13 @@ $items = array(
 	'hairpress-wp' => array(
 		'title'       => 'Hairpress - Wordpress Theme for Hair Salons Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Hairpress WP',
-		'demo_url'    => 'http://hairpress.demo.proteusthemes.com',
+		'demo_url'    => 'http://demo.proteusthemes.com/hairpress/',
 		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496',
 		'price'       => '$58',
 		'analytics'   => array(
 			'tracking_id'   => 'UA-33538073-4',
 			'allowed_domains' => array(
-				'hairpress.demo.proteusthemes.com'
+				'demo.proteusthemes.com'
 			),
 		),
 	),
@@ -60,7 +60,7 @@ $items = array(
 	'webmarket-wp' => array(
 		'title'       => 'Webmarket - WP WooCommerce Theme for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket WP + Woo',
-		'demo_url'    => 'http://webmarket.demo.proteusthemes.com',
+		'demo_url'    => 'http://demo.proteusthemes.com/webmarket/',
 		'url'         => 'http://themeforest.net/item/webmarket-wp-woocommerce-theme-for-online-shop/6437728',
 		'price'       => '$58',
 	),
@@ -74,20 +74,20 @@ $items = array(
 	'organique-wp' => array(
 		'title'       => 'Organique - WordPress Theme For Healthy Food Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique WP + Woo',
-		'demo_url'    => 'http://organique.demo.proteusthemes.com/',
+		'demo_url'    => 'http://demo.proteusthemes.com/organique/',
 		'url'         => 'http://themeforest.net/item/organique-wordpress-theme-for-healthy-food-shop/7312458',
 		'price'       => '$58',
 	),
 	'carpress-wp' => array(
 		'title'       => 'Carpress - WordPress Theme For Mechanic Workshops Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Carpress WP',
-		'demo_url'    => 'http://carpress.demo.proteusthemes.com/',
+		'demo_url'    => 'http://demo.proteusthemes.com/carpress/',
 		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577',
 		'price'       => '$58',
 		'analytics'   => array(
 			'tracking_id'   => 'UA-33538073-10',
 			'allowed_domains' => array(
-				'carpress.demo.proteusthemes.com'
+				'demo.proteusthemes.com'
 			),
 		),
 	),
@@ -101,20 +101,33 @@ $items = array(
 	'readable-wp' => array(
 		'title'       => 'Readable - WordPress Theme Focused on Readability Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable WP',
-		'demo_url'    => 'http://readable.demo.proteusthemes.com/',
+		'demo_url'    => 'http://demo.proteusthemes.com/readable/',
 		'url'         => 'http://themeforest.net/item/readable-wordpress-theme-focused-on-readability/7712790',
 		'price'       => '$43',
 	),
 	'restaurant-wp' => array(
 		'title'       => 'Dining Restaurant - WordPress Theme For Chefs - by ' . ENVATO_USERNAME,
 		'title_short' => 'Dining Restaurant WP',
-		'demo_url'    => 'http://restaurant.demo.proteusthemes.com/',
+		'demo_url'    => 'http://demo.proteusthemes.com/restaurant/',
 		'url'         => 'http://themeforest.net/item/dining-restaurant-wordpress-theme-for-chefs/8294419',
 		'price'       => '$58',
 		'analytics'   => array(
 			'tracking_id'   => 'UA-33538073-11',
 			'allowed_domains' => array(
-				'restaurant.demo.proteusthemes.com'
+				'demo.proteusthemes.com'
+			),
+		),
+	),
+	'buildpress-wp' => array(
+		'title'       => 'BuildPress - WP Theme For Construction Business - by ' . ENVATO_USERNAME,
+		'title_short' => 'BuildPress WP',
+		'demo_url'    => 'http://demo.proteusthemes.com/buildpress/',
+		'url'         => 'http://themeforest.net/item/buildpress-wp-theme-for-construction-business/9323981',
+		'price'       => '$48',
+		'analytics'   => array(
+			'tracking_id'   => 'UA-33538073-13',
+			'allowed_domains' => array(
+				'demo.proteusthemes.com'
 			),
 		),
 	),
@@ -258,15 +271,6 @@ function has_analytics( $item ) {
 			}
 		</script>
 
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-
 		<div id="custom-preview-bar">
 			<a class="logo" href="http://www.proteusthemes.com/" target="_blank">
 				<img src="preview-bar/images/logo.png" alt="ProteusThemes - www.proteusthemes.com" width="262" height="59" />
@@ -298,20 +302,20 @@ function has_analytics( $item ) {
 			 */
 			var linker;
 
-			function addiFrame(divId, url, opt_hash) {
-				return function(tracker) {
-					window.linker = window.linker || new window.gaplugins.Linker(tracker);
-					var iFrame    = document.createElement('iFrame');
-					iFrame.src    = window.linker.decorate(url, opt_hash);
+			function addiFrame( divId, url, opt_hash ) {
+				return function( tracker ) {
+					window.linker = window.linker || new window.gaplugins.Linker( tracker );
+					var iFrame    = document.createElement( 'iFrame' );
+					iFrame.src    = window.linker.decorate( url, opt_hash );
 					iFrame.id     = 'main-preview-frame';
 					iFrame.setAttribute( 'frameborder', '0' );
-					document.getElementById(divId).appendChild(iFrame);
+					document.getElementById( divId ).appendChild( iFrame );
 					calcHeight();
 				};
 			}
 
 			// Dynamically add the iFrame to the page with proper linker parameters.
-			ga(addiFrame('iframe-holder', '<?php echo $item['demo_url']; ?>'));
+			ga( addiFrame( 'iframe-holder', '<?php echo $item['demo_url']; ?>' ) );
 		</script>
 	<?php else : ?>
 		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
