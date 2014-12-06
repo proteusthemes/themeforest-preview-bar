@@ -363,7 +363,9 @@ function has_analytics( $item ) {
 
 					var prepend = $el[0].search.length > 0 ? '&' : '?';
 
-					$el.attr( 'href', $el.attr( 'href' ) + prepend + this.urlAppend );
+					if ( this.urlAppend ) {
+						$el.attr( 'href', $el.attr( 'href' ) + prepend + this.urlAppend );
+					}
 
 					return this;
 				},
