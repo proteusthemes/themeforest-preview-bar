@@ -212,7 +212,6 @@ function has_analytics( $item ) {
 	<script>
 		// Ask Google Analytics which variation to show the user.
 		var chosenVariation = cxApi.chooseVariation();
-		console.log(chosenVariation);
 
 		// define variations
 		var pageVariations = [
