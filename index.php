@@ -212,7 +212,6 @@ function has_analytics( $item ) {
 	<script>
 		// Ask Google Analytics which variation to show the user.
 		var chosenVariation = cxApi.chooseVariation();
-		console.log(chosenVariation);
 
 		// define variations
 		var pageVariations = [
@@ -320,5 +319,97 @@ function has_analytics( $item ) {
 	<?php else : ?>
 		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
 	<?php endif; ?>
+
+	<!-- custom, not so important JS at the end -->
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
+		$( function() {
+			/**
+			 * Constructor
+			 * @return {[type]} [description]
+			 */
+			var utmDecorator = function () {
+				this.autosetParameters();
+				this.stringifyObj( this.parametersObj );
+			};
+
+			$.extend( utmDecorator.prototype, {
+				// from: https://support.google.com/analytics/answer/1033867?hl=en
+				utmParams: [ 'utm_source', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign' ],
+
+				parametersObj: {},
+
+				urlAppend: '',
+
+				/**
+				 * Helper function for getting parameter by name
+				 * @see  http://stackoverflow.com/a/901144
+				 * @param  {string} name
+				 * @return {string}
+				 */
+				getParameterByName: function (name) {
+					name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+					var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+					results = regex.exec(location.search);
+					return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+				},
+
+				/**
+				 * Pass the DOM element and it will output the decorated link
+				 * @param  {DOM} el
+				 */
+				decorate: function ( el ) {
+					var $el = $( el );
+
+					var prepend = $el[0].search.length > 0 ? '&' : '?';
+
+					$el.attr( 'href', $el.attr( 'href' ) + prepend + this.urlAppend );
+
+					return this;
+				},
+
+				/**
+				 * Set parameters, based on the existing page
+				 * @return this
+				 */
+				autosetParameters: function () {
+					// reset
+					this.parametersObj = {};
+
+					// check every
+					$.each( this.utmParams, $.proxy( function ( index, utmParam ) {
+						var utmParamVal = this.getParameterByName( utmParam );
+						if ( utmParamVal ) {
+							this.parametersObj[ utmParam ] = utmParamVal;
+						}
+					}, this ) );
+
+					return this;
+				},
+
+				/**
+				 * Build the HTTP GET query
+				 * @param  {object} obj
+				 * @return this
+				 */
+				stringifyObj: function ( obj ) {
+					var urlAppend = [];
+					$.each( obj, $.proxy( function ( key, val ) {
+						urlAppend.push( key + '=' + val );
+					}, this ) );
+
+					this.urlAppend = urlAppend.join( '&' );
+
+					return this;
+				}
+			} );
+
+			// decorate all links to themeforest and to our demo page on page load
+			var decorator = new utmDecorator;
+			$( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' ).each( function ( index, $el ) {
+				decorator.decorate( $el );
+			} );
+		} );
+	</script>
 	</body>
 </html>
