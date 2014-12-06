@@ -253,21 +253,6 @@ function has_analytics( $item ) {
 			ga('linker:autoLink', ['<?php echo implode( "', '", $item['analytics']['allowed_domains'] ); ?>'] );
 			ga('itemShown.send', 'pageview');
 		<?php endif; ?>
-
-			/**
-			* Function that tracks a click on an outbound link in Google Analytics.
-			* This function takes a valid URL string as an argument, and uses that URL string
-			* as the event label.
-			*/
-			var trackOutboundLink = function(url) {
-				var goToUrl = function () {
-					document.location = url;
-				}
-				ga('send', 'event', 'outbound', 'click', url, {'hitCallback': goToUrl });
-			<?php if ( has_analytics( $item ) ) : ?>
-				ga('itemShown.send', 'event', 'outbound', 'click', url, {'hitCallback': goToUrl });
-			<?php endif; ?>
-			}
 		</script>
 
 		<div id="custom-preview-bar">
@@ -286,7 +271,7 @@ function has_analytics( $item ) {
 			</div>
 			<div class="right">
 				<div class="fb-like" data-href="https://www.facebook.com/ProteusThemes" data-width="90" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase"<?php if ( has_analytics( $item ) ) : ?> onclick="trackOutboundLink('<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>'); return false;"<?php endif; ?>>
+				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase">
 					<img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" id="purcase-btn-test" />
 					<span class="purchase__text"><span id="purchase-txt-test">Purchase</span> &nbsp;(<?php echo $item['price']; ?>)</span>
 				</a>
@@ -410,6 +395,14 @@ function has_analytics( $item ) {
 			var decorator = new utmDecorator;
 			$( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' ).each( function ( index, $el ) {
 				decorator.decorate( $el );
+			} );
+
+			// track outbound link
+			$( 'a[href*="themeforest.net"]' ).on( 'click', function () {
+				ga('send', 'event', 'outbound', 'click', $( this ).attr( 'href' ) );
+<?php if ( has_analytics( $item ) ) : ?>
+				ga('itemShown.send', 'event', 'outbound', 'click', $( this ).attr( 'href' ) );
+<?php endif; ?>
 			} );
 		} );
 	</script>
