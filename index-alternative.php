@@ -232,7 +232,7 @@ function has_analytics( $item ) {
 		<div class="preview-bar">
 			<!-- Envato Logo -->
 			<div class="preview-bar__logo" href="#">
-				<a href="#">Envato Market</a>
+				<a href="http://themeforest.net/user/ProteusThemes/portfolio?ref=ProteusThemes">Envato Market</a>
 			</div>
 			<!-- Select Theme -->
 			<div class="preview-bar__select-theme">
