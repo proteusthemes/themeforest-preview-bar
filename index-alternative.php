@@ -174,7 +174,7 @@ function has_analytics( $item ) {
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
+	<head>
 	<meta charset="utf-8">
 	<title><?php echo $item['title']; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -229,28 +229,30 @@ function has_analytics( $item ) {
 		<?php endif; ?>
 		</script>
 
-		<div id="custom-preview-bar">
-			<a class="logo" href="http://www.proteusthemes.com/" target="_blank">
-				<img src="preview-bar/images/logo.png" alt="ProteusThemes - www.proteusthemes.com" width="262" height="59" />
+		<div class="preview-bar">
+			<!-- Envato Logo -->
+			<div class="preview-bar__logo" href="#">
+				<a href="#">Envato Market</a>
+			</div>
+			<!-- Select Theme -->
+			<div class="preview-bar__select-theme">
+				<?php echo $item['title_short']; ?>
+				<ul class="preview-bar__select-theme__all-themes">
+					<?php foreach($items as $slug => $single_item) : ?>
+					<li><a href="<?php echo site_url('?theme=' . $slug); ?>"><?php echo $single_item['title_short']; ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+			<!-- Made by ProteusThemes -->
+			<span class="preview-bar__proteusthemes">made by <a href="http://www.proteusthemes.com/" target="_blank">ProteusThemes</a></span>
+			<!-- Close Frame -->
+			<a class="preview-bar__remove-frame" href="<?php echo $item['demo_url']; ?>" title="Close This Frame">
+				<img class="preview-bar__remove-frame__x" src="preview-bar/images/x.png"> <span class="preview-bar__remove-frame__text">Remove Frame</span>
 			</a>
-			<div class="center">
-				<div class="selectable">
-					<?php echo $item['title_short']; ?>
-					<ul class="other-themes">
-						<?php foreach($items as $slug => $single_item) : ?>
-						<li><a href="<?php echo site_url('?theme=' . $slug); ?>"><?php echo $single_item['title_short']; ?></a></li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-			</div>
-			<div class="right">
-				<a href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>" class="purchase">
-					<img src="preview-bar/images/purchase.png" alt="Purchase this theme" width="164" height="59" id="purcase-btn-test" />
-					<span class="purchase__text"><span id="purchase-txt-test">Purchase</span> &nbsp;(<?php echo $item['price']; ?>)</span>
-				</a>
-				<a href="<?php echo $item['demo_url']; ?>" class="close" title="Close This Frame">×</a>
-			</div>
+			<!-- Buy Now Button -->
+			<a class="preview-bar__purchase-button" href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>">Buy now</a>
 		</div>
+
 	<?php if ( has_analytics( $item ) ): ?>
 		<div id="iframe-holder"></div>
 		<script>
