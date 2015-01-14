@@ -14,7 +14,7 @@ require_once 'items.php';
 	<meta name="author" content="ProteusNet d.o.o.">
 
 	<!--  = CSS stylesheets =  -->
-	<link rel="stylesheet" href="preview-bar/stylesheets/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="preview-bar/stylesheets/style.css?ver=2" type="text/css" media="all" />
 
 	<!-- Fav icon -->
 	<link rel="shortcut icon" href="//www.proteusthemes.com/favicon.ico">
