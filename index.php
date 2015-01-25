@@ -1,7 +1,7 @@
 <?php
 
-require_once 'functions.php';
-require_once 'items.php';
+require_once 'preview-bar/functions.php';
+require_once 'preview-bar/items.php';
 
 ?>
 <!DOCTYPE html>
