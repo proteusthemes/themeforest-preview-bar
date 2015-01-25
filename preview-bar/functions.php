@@ -3,7 +3,7 @@
 /**
  * Constants / config
  */
-define( 'BASE_DOMAIN', 'http://www.proteusthemes.com/' );
+define( 'BASE_DOMAIN', 'https://www.proteusthemes.com/' );
 define( 'BASE_URL', BASE_DOMAIN . 'themes/' );
 define( 'ENVATO_USERNAME', 'ProteusThemes' ); // for the refferal link
 
