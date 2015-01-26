@@ -11,7 +11,7 @@ $items = array(
 		// short title is used in the drop-down menu
 		'title_short' => 'Hairpress HTML',
 		// URL to demo site
-		'demo_url'    => 'http://www.proteusthemes.com/themes/hairpress/',
+		'demo_url'    => '//www.proteusthemes.com/themes/hairpress/',
 		// needs any explanation? URL to your item in ThemeForest
 		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346',
 		// Price of the item
@@ -33,7 +33,7 @@ $items = array(
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
-		'demo_url'    => 'http://www.proteusthemes.com/themes/webmarket-html/',
+		'demo_url'    => '//www.proteusthemes.com/themes/webmarket-html/',
 		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539',
 		'price'       => '$16',
 	),
@@ -47,7 +47,7 @@ $items = array(
 	'organique-html' => array(
 		'title'       => 'Organique - HTML Template For Healthy Food Store Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique HTML',
-		'demo_url'    => 'http://www.proteusthemes.com/themes/organique-html/',
+		'demo_url'    => '//www.proteusthemes.com/themes/organique-html/',
 		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086',
 		'price'       => '$17',
 	),
@@ -74,7 +74,7 @@ $items = array(
 	'readable-html' => array(
 		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable HTML',
-		'demo_url'    => 'http://www.proteusthemes.com/themes/readable-html/',
+		'demo_url'    => '//www.proteusthemes.com/themes/readable-html/',
 		'url'         => 'http://themeforest.net/item/readable-blog-template-focused-on-readability/7499064',
 		'price'       => '$16',
 	),
