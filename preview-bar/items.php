@@ -111,6 +111,19 @@ $items = array(
 			),
 		),
 	),
+	'mentalpress-wp' => array(
+		'title'       => 'MentalPress - Psychiatrists WP Theme - by ' . ENVATO_USERNAME,
+		'title_short' => 'MentalPress WP',
+		'demo_url'    => '//demo.proteusthemes.com/mentalpress/',
+		'url'         => 'http://themeforest.net/item/mentalpress-psychiatrists-wp-theme/10676732',
+		'price'       => '$58',
+		'analytics'   => array(
+			'tracking_id'     => 'UA-33538073-16',
+			'allowed_domains' => array(
+				'demo.proteusthemes.com'
+			),
+		),
+	),
 );
 
 $items = array_reverse( $items );
