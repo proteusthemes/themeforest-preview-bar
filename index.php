@@ -43,12 +43,12 @@ require_once 'preview-bar/items.php';
     s.parentNode.insertBefore(fbds, s);
     _fbq.loaded = true;
   }
-  _fbq.push(['addPixelId', '830709590327754']);
+  _fbq.push(['addPixelId', '650819048377184']);
 })();
 window._fbq = window._fbq || [];
 window._fbq.push(['track', 'PixelInitialized', {}]);
 </script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=830709590327754&amp;ev=PixelInitialized" /></noscript>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=650819048377184&amp;ev=PixelInitialized" /></noscript>
 
 	</head>
 
