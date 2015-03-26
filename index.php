@@ -76,7 +76,7 @@ require_once 'preview-bar/items.php';
 				<img class="preview-bar__remove-frame__x" src="preview-bar/images/x.png"> <span class="preview-bar__remove-frame__text">Remove Frame</span>
 			</a>
 			<!-- Buy Now Button -->
-			<a class="preview-bar__purchase-button" href="<?php echo $item['url']; ?>?ref=<?php echo ENVATO_USERNAME; ?>">Buy now</a>
+			<a class="preview-bar__purchase-button" href="<?php echo $item['url']; ?>&ref=<?php echo ENVATO_USERNAME; ?>">Buy now</a>
 		</div>
 
 	<?php if ( has_analytics( $item ) ): ?>
