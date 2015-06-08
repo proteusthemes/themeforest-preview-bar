@@ -123,6 +123,19 @@ $items = array(
 			),
 		),
 	),
+	'cargopress-wp' => array(
+		'title'       => 'CargoPress - Transportation, Logistic WP Theme - by ' . ENVATO_USERNAME,
+		'title_short' => 'CargoPress WP',
+		'demo_url'    => '//demo.proteusthemes.com/cargopress/',
+		'url'         => 'http://themeforest.net/item/cargopress-logistic-warehouse-transport-wp/11601531?license=regular&open_purchase_for_item_id=11601531&purchasable=source',
+		'price'       => '$58',
+		'analytics'   => array(
+			'tracking_id'     => 'UA-33538073-18',
+			'allowed_domains' => array(
+				'demo.proteusthemes.com'
+			),
+		),
+	),
 );
 
 $items = array_reverse( $items );
