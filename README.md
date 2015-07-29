@@ -21,4 +21,5 @@ Sure, you will want to customize your navbar. It is build with the Compass/SASS,
 ### Authors
 
 Created by [ProteusThemes](https://github.com/ProteusThemes/ThemeForest-Preview-Bar)
+
 The initial design in PSD was created by [Jaka Šmid](http://www.spaka.si/).
