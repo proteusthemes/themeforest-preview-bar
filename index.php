@@ -1,7 +1,42 @@
 <?php
-
+require_once 'preview-bar/config.php';
 require_once 'preview-bar/functions.php';
-require_once 'preview-bar/items.php';
+
+
+/**
+ * Redirect ASAP, need to be done using JS
+ */
+if( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
+	if( FALSE !== strstr( $_SERVER['HTTP_REFERER'], 'themeforest.net' ) ) {
+		?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>window.top.location.href = "<?php echo BASE_URL; ?>?theme=<?php echo $_GET['theme']; ?>";</script>
+	</head>
+	<body></body>
+</html>
+		<?php
+		exit;
+	}
+}
+
+
+/**
+ * Check for current item
+ */
+if( key_exists( @$_GET['theme'], $items ) ) {
+	$item  = $items[$_GET['theme']];
+
+} else {
+	$item = array(
+		'title'       => FALLBACK_ITEM_TITLE_PREFIX.ENVATO_USERNAME,
+		'title_short' => FALLBACK_ITEM_TITLE_SHORT,
+		'url'         => FALLBACK_ITEM_URL,
+		'demo_url'    => FALLBACK_ITEM_URL,
+		'price'       => '',
+	);
+}
 
 ?>
 <!DOCTYPE html>
@@ -11,13 +46,13 @@ require_once 'preview-bar/items.php';
 	<title><?php echo $item['title']; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Demo theme preview">
-	<meta name="author" content="ProteusNet d.o.o.">
+	<meta name="author" content="<?php echo AUTHOR; ?>">
 
 	<!--  = CSS stylesheets =  -->
-	<link rel="stylesheet" href="preview-bar/stylesheets/style.css?ver=2" type="text/css" media="all" />
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.css?ver=2" type="text/css" media="all" />
 
 	<!-- Fav icon -->
-	<link rel="shortcut icon" href="//www.proteusthemes.com/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
 
 	<script type="text/javascript">
 		var calcHeight = function() {
@@ -33,26 +68,29 @@ require_once 'preview-bar/items.php';
 	</script>
 
 	<!-- fb tracking pixel -->
+	<?php if ( defined( 'FB_TRACKING_PX' ) && ! empty( FB_TRACKING_PX ) ): ?>
 	<script>(function() {
-  var _fbq = window._fbq || (window._fbq = []);
-  if (!_fbq.loaded) {
-    var fbds = document.createElement('script');
-    fbds.async = true;
-    fbds.src = '//connect.facebook.net/en_US/fbds.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(fbds, s);
-    _fbq.loaded = true;
-  }
-  _fbq.push(['addPixelId', '650819048377184']);
-})();
-window._fbq = window._fbq || [];
-window._fbq.push(['track', 'PixelInitialized', {}]);
-</script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=650819048377184&amp;ev=PixelInitialized" /></noscript>
+		var _fbq = window._fbq || (window._fbq = []);
+		if (!_fbq.loaded) {
+			var fbds = document.createElement('script');
+			fbds.async = true;
+			fbds.src = '//connect.facebook.net/en_US/fbds.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(fbds, s);
+			_fbq.loaded = true;
+		}
+		_fbq.push(['addPixelId', '<?php echo FB_TRACKING_PX; ?>']);
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+	<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=<?php echo FB_TRACKING_PX; ?>&amp;ev=PixelInitialized" /></noscript>
+	<?php endif; ?>
 
 	</head>
 
 	<body>
+		<?php if ( defined( 'GA_ID' ) && ! empty( GA_ID ) ): ?>
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -62,7 +100,7 @@ window._fbq.push(['track', 'PixelInitialized', {}]);
 			ga('require', 'linker');
 
 			// property for the preview bar
-			ga('create', 'UA-33538073-12', 'auto');
+			ga('create', '<?php echo GA_ID; ?>', 'auto');
 			ga('send', 'pageview');
 
 		<?php if ( has_analytics( $item ) ) : ?>
@@ -72,11 +110,12 @@ window._fbq.push(['track', 'PixelInitialized', {}]);
 			ga('itemShown.send', 'pageview');
 		<?php endif; ?>
 		</script>
+		<?php endif; ?>
 
 		<div class="preview-bar" id="custom-preview-bar">
 			<!-- Envato Logo -->
 			<div class="preview-bar__logo" href="#">
-				<a href="http://themeforest.net/user/ProteusThemes/portfolio?ref=ProteusThemes">Envato Market</a>
+				<a href="<?php echo LOGO_LINK; ?>">Envato Market</a>
 			</div>
 			<!-- Select Theme -->
 			<div class="preview-bar__select-theme">
@@ -87,8 +126,8 @@ window._fbq.push(['track', 'PixelInitialized', {}]);
 					<?php endforeach; ?>
 				</ul>
 			</div>
-			<!-- Made by ProteusThemes -->
-			<span class="preview-bar__proteusthemes">made by <a href="//www.proteusthemes.com/" target="_blank">ProteusThemes</a></span>
+			<!-- Made by -->
+			<span class="preview-bar__proteusthemes">made by <a href="<?php echo MADE_BY_LINK; ?>" target="_blank"><?php echo MADE_BY_TEXT; ?></a></span>
 			<!-- Close Frame -->
 			<a class="preview-bar__remove-frame" href="<?php echo $item['demo_url']; ?>" title="Close This Frame">
 				<img class="preview-bar__remove-frame__x" src="preview-bar/images/x.png"> <span class="preview-bar__remove-frame__text">Remove Frame</span>
