@@ -25,8 +25,6 @@ if( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
 /**
  * Check for current item
  */
-$items = array_reverse( $items );
-
 if( key_exists( @$_GET['theme'], $items ) ) {
 	$item  = $items[$_GET['theme']];
 
@@ -47,14 +45,14 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<meta charset="utf-8">
 	<title><?php echo $item['title']; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="<?php echo $item['description']; ?>">
-	<meta name="author" content="<?php echo $item['author']; ?>">
+	<meta name="description" content="Demo theme preview">
+	<meta name="author" content="<?php echo AUTHOR; ?>">
 
 	<!--  = CSS stylesheets =  -->
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.css?ver=2" type="text/css" media="all" />
 
 	<!-- Fav icon -->
-	<link rel="shortcut icon" href="<?php echo BASE_URL; ?>favicon.ico">
+	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
 
 	<script type="text/javascript">
 		var calcHeight = function() {
@@ -70,26 +68,29 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	</script>
 
 	<!-- fb tracking pixel -->
+	<?php if ( defined( 'FB_TRACKING_PX' ) && ! empty( FB_TRACKING_PX ) ): ?>
 	<script>(function() {
-	  var _fbq = window._fbq || (window._fbq = []);
-	  if (!_fbq.loaded) {
-	    var fbds = document.createElement('script');
-	    fbds.async = true;
-	    fbds.src = '//connect.facebook.net/en_US/fbds.js';
-	    var s = document.getElementsByTagName('script')[0];
-	    s.parentNode.insertBefore(fbds, s);
-	    _fbq.loaded = true;
-	  }
-	  _fbq.push(['addPixelId', <?php echo "'".FB_TRACKING_PX."'"; ?>]);
+		var _fbq = window._fbq || (window._fbq = []);
+		if (!_fbq.loaded) {
+			var fbds = document.createElement('script');
+			fbds.async = true;
+			fbds.src = '//connect.facebook.net/en_US/fbds.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(fbds, s);
+			_fbq.loaded = true;
+		}
+		_fbq.push(['addPixelId', '<?php echo FB_TRACKING_PX; ?>']);
 	})();
 	window._fbq = window._fbq || [];
 	window._fbq.push(['track', 'PixelInitialized', {}]);
 	</script>
 	<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=<?php echo FB_TRACKING_PX; ?>&amp;ev=PixelInitialized" /></noscript>
+	<?php endif; ?>
 
 	</head>
 
 	<body>
+		<?php if ( defined( 'GA_ID' ) && ! empty( GA_ID ) ): ?>
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -99,7 +100,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			ga('require', 'linker');
 
 			// property for the preview bar
-			ga('create', <?php echo "'".GA_ID."'"; ?>, 'auto');
+			ga('create', '<?php echo GA_ID; ?>', 'auto');
 			ga('send', 'pageview');
 
 		<?php if ( has_analytics( $item ) ) : ?>
@@ -109,6 +110,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			ga('itemShown.send', 'pageview');
 		<?php endif; ?>
 		</script>
+		<?php endif; ?>
 
 		<div class="preview-bar" id="custom-preview-bar">
 			<!-- Envato Logo -->
@@ -249,7 +251,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 
 				// decorate all links to themeforest and to our demo page on page load
 				var decorator = new utmDecorator;
-				$( 'a[href*="codecanyon.net"], a[href*="magemill.com"]' ).each( function ( index, $el ) {
+				$( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' ).each( function ( index, $el ) {
 					decorator.decorate( $el );
 				} );
 			} );

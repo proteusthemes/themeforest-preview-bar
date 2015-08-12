@@ -3,9 +3,9 @@ ThemeForest Custom Preview Bar
 
 The custom preview bar with the dropdown of all your items.
 
-Fully configurable via one single file (config.pgp)
+Fully configurable via one single file (config.php).
 
-[See the demo](http://demo.magemill.com/?theme=orderimages).
+[See the demo](https://www.proteusthemes.com/themes/?theme=cargopress-wp).
 
 ### Setup
 
