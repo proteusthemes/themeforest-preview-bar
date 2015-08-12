@@ -1,4 +1,20 @@
 <?php
+/**
+ * Constants / config
+ */
+define( 'BASE_DOMAIN', 'https://www.proteusthemes.com' ); // domain where preview bar is installed, with protocol
+define( 'BASE_URL', BASE_DOMAIN . '/themes/' ); // url where this preview bar is installed
+define( 'ENVATO_USERNAME', 'ProteusThemes' ); // for the refferal link
+define( 'AUTHOR', 'ProteusThemes' ); // displayed in author meta tags
+define( 'LOGO_LINK', 'http://themeforest.net/user/ProteusThemes/portfolio?ref=ProteusThemes' ); // Linked wrapped around logo
+define( 'MADE_BY_LINK', BASE_DOMAIN ); // displayed in author meta tags
+define( 'MADE_BY_TEXT', 'ProteusThemes' ); // displayed in author meta tags
+define( 'FB_TRACKING_PX', '650819048377184'); // facebook tracking pixel
+define( 'GA_ID', 'UA-33538073-12'); // google analytics ID
+
+define( 'FALLBACK_ITEM_URL', BASE_DOMAIN ); // if there is no item choosen, this URL will be displayed
+define( 'FALLBACK_ITEM_TITLE_PREFIX', 'Item Preview - by ' ); // if there is no item choosen
+define( 'FALLBACK_ITEM_TITLE_SHORT', 'Item Preview' ); // if there is no item choosen
 
 /**
  * Array of our themes
@@ -136,23 +152,20 @@ $items = array(
 			),
 		),
 	),
+	// 'legalpress-wp' => array(
+	// 	'title'       => 'LegalPress - Law, Lawyer, Attorney WP Theme - by ' . ENVATO_USERNAME,
+	// 	'title_short' => 'LegalPress WP',
+	// 	'demo_url'    => '//demo.proteusthemes.com/legalpress/',
+	// 	'url'         => 'http://themeforest.net/item/cargopress-logistic-warehouse-transport-wp/11601531?license=regular&open_purchase_for_item_id=11601531&purchasable=source',
+	// 	'price'       => '$58',
+	// 	'analytics'   => array(
+	// 		'tracking_id'     => 'UA-33538073-18',
+	// 		'allowed_domains' => array(
+	// 			'demo.proteusthemes.com'
+	// 		),
+	// 	),
+	// ),
 );
 
+// fix: first element last in the dropdown
 $items = array_reverse( $items );
-
-
-/**
- * Check for current item
- */
-if( key_exists( @$_GET['theme'], $items ) ) {
-	$item  = $items[$_GET['theme']];
-
-} else {
-	$item = array(
-		'title'       => 'Theme Preview - by ' . ENVATO_USERNAME,
-		'title_short' => 'Theme Preview',
-		'url'         => '//www.proteusthemes.com',
-		'demo_url'    => '//www.proteusthemes.com',
-		'price'       => '',
-	);
-}
