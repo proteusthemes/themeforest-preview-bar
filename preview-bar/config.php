@@ -158,12 +158,12 @@ $items = array(
 		'demo_url'    => '//demo.proteusthemes.com/legalpress/',
 		'url'         => 'http://themeforest.net/item/legalpress-law-attorney-insurance-legal-theme/12389860?license=regular&open_purchase_for_item_id=12389860&purchasable=source',
 		'price'       => '$60',
-		'analytics'   => array(
-			'tracking_id'     => 'UA-33538073-20',
-			'allowed_domains' => array(
-				'demo.proteusthemes.com'
-			),
-		),
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-20',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
 	),
 );
 
