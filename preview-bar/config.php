@@ -38,12 +38,12 @@ $items = array(
 		'demo_url'    => '//demo.proteusthemes.com/hairpress/',
 		'url'         => 'http://themeforest.net/item/hairpress-wordpress-theme-for-hair-salons/4099496?license=regular&open_purchase_for_item_id=4099496&purchasable=source',
 		'price'       => '$59',
-		'analytics'   => array(
-			'tracking_id'     => 'UA-33538073-4',
-			'allowed_domains' => array(
-				'demo.proteusthemes.com'
-			),
-		),
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-4',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
 	),
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
@@ -79,12 +79,12 @@ $items = array(
 		'demo_url'    => '//demo.proteusthemes.com/carpress/',
 		'url'         => 'http://themeforest.net/item/carpress-wordpress-theme-for-mechanic-workshops/7042577?license=regular&open_purchase_for_item_id=7042577&purchasable=source',
 		'price'       => '$59',
-		'analytics'   => array(
-			'tracking_id'     => 'UA-33538073-10',
-			'allowed_domains' => array(
-				'demo.proteusthemes.com'
-			),
-		),
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-10',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
 	),
 	'readable-html' => array(
 		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
@@ -106,12 +106,12 @@ $items = array(
 		'demo_url'    => '//demo.proteusthemes.com/restaurant/',
 		'url'         => 'http://themeforest.net/item/dining-restaurant-wordpress-theme-for-chefs/8294419?license=regular&open_purchase_for_item_id=8294419&purchasable=source',
 		'price'       => '$59',
-		'analytics'   => array(
-			'tracking_id'     => 'UA-33538073-11',
-			'allowed_domains' => array(
-				'demo.proteusthemes.com'
-			),
-		),
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-11',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
 	),
 	'buildpress-wp' => array(
 		'title'       => 'BuildPress - WP Theme For Construction Business - by ' . ENVATO_USERNAME,
@@ -119,12 +119,12 @@ $items = array(
 		'demo_url'    => '//demo.proteusthemes.com/buildpress/',
 		'url'         => 'http://themeforest.net/item/buildpress-wp-theme-for-construction-business/9323981?license=regular&open_purchase_for_item_id=9323981&purchasable=source',
 		'price'       => '$59',
-		'analytics'   => array(
-			'tracking_id'     => 'UA-33538073-13',
-			'allowed_domains' => array(
-				'demo.proteusthemes.com'
-			),
-		),
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-13',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
 	),
 	'mentalpress-wp' => array(
 		'title'       => 'MentalPress - Psychiatrists WP Theme - by ' . ENVATO_USERNAME,
@@ -132,12 +132,12 @@ $items = array(
 		'demo_url'    => '//demo.proteusthemes.com/mentalpress/',
 		'url'         => 'http://themeforest.net/item/mentalpress-psychiatrists-wp-theme/10676732?license=regular&open_purchase_for_item_id=10676732&purchasable=source',
 		'price'       => '$59',
-		'analytics'   => array(
-			'tracking_id'     => 'UA-33538073-16',
-			'allowed_domains' => array(
-				'demo.proteusthemes.com'
-			),
-		),
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-16',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
 	),
 	'cargopress-wp' => array(
 		'title'       => 'CargoPress - Transportation, Logistic WP Theme - by ' . ENVATO_USERNAME,
@@ -145,12 +145,12 @@ $items = array(
 		'demo_url'    => '//demo.proteusthemes.com/cargopress/',
 		'url'         => 'http://themeforest.net/item/cargopress-logistic-warehouse-transport-wp/11601531?license=regular&open_purchase_for_item_id=11601531&purchasable=source',
 		'price'       => '$59',
-		'analytics'   => array(
-			'tracking_id'     => 'UA-33538073-18',
-			'allowed_domains' => array(
-				'demo.proteusthemes.com'
-			),
-		),
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-18',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
 	),
 	'legalpress-wp' => array(
 		'title'       => 'LegalPress - Law, Lawyer, Attorney WP Theme - by ' . ENVATO_USERNAME,
