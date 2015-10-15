@@ -157,7 +157,20 @@ $items = array(
 		'title_short' => 'LegalPress WP',
 		'demo_url'    => '//demo.proteusthemes.com/legalpress/',
 		'url'         => 'http://themeforest.net/item/legalpress-law-attorney-insurance-legal-theme/12389860?license=regular&open_purchase_for_item_id=12389860&purchasable=source',
-		'price'       => '$60',
+		'price'       => '$59',
+		// 'analytics'   => array(
+		// 	'tracking_id'     => 'UA-33538073-20',
+		// 	'allowed_domains' => array(
+		// 		'demo.proteusthemes.com'
+		// 	),
+		// ),
+	),
+	'repairpress-wp' => array(
+		'title'       => 'RepairPress - GSM, Phone Repair Shop WP Theme - by ' . ENVATO_USERNAME,
+		'title_short' => 'RepairPress WP',
+		'demo_url'    => '//demo.proteusthemes.com/repairpress/',
+		'url'         => 'http://themeforest.net/item/repairpress-gsm-phone-repair-shop-wp/13065600?license=regular&open_purchase_for_item_id=13065600&purchasable=source',
+		'price'       => '$59',
 		// 'analytics'   => array(
 		// 	'tracking_id'     => 'UA-33538073-20',
 		// 	'allowed_domains' => array(
