@@ -178,6 +178,13 @@ $items = array(
 		// 	),
 		// ),
 	),
+	'structurepress-wp' => array(
+		'title'       => 'StructurePress - Construction, Building WordPress Theme - by ' . ENVATO_USERNAME,
+		'title_short' => 'StructurePress WP',
+		'demo_url'    => '//demo.proteusthemes.com/structurepress/',
+		'url'         => 'http://themeforest.net/item/structurepress-construction-building-wp-theme/13743206?license=regular&open_purchase_for_item_id=13743206&purchasable=source',
+		'price'       => '$59',
+	),
 );
 
 // fix: first element last in the dropdown
