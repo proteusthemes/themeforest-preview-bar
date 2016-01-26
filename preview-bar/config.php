@@ -185,6 +185,13 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/structurepress-construction-building-wp-theme/13743206?license=regular&open_purchase_for_item_id=13743206&purchasable=source',
 		'price'       => '$59',
 	),
+	'beauty-wp' => array(
+		'title'       => 'Beauty - Hair Salon, Nail, Spa, Fashion WP Theme - by ' . ENVATO_USERNAME,
+		'title_short' => 'Beauty WP',
+		'demo_url'    => '//demo.proteusthemes.com/beauty/',
+		'url'         => 'http://themeforest.net/item/beauty-hair-salon-nail-spa-fashion-wp-theme/14458185?license=regular&open_purchase_for_item_id=14458185&purchasable=source',
+		'price'       => '$59',
+	),
 );
 
 // fix: first element last in the dropdown
