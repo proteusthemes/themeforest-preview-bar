@@ -1,7 +1,7 @@
 <?php
+
 require_once 'preview-bar/config.php';
 require_once 'preview-bar/functions.php';
-
 
 /**
  * Redirect ASAP, need to be done using JS
@@ -62,6 +62,8 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			if ( previewFrame && previewBar) {
 				previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
 			}
+
+			document.body.style.minHeight = window.innerHeight + 'px';
 		};
 		document.addEventListener( 'DOMContentLoaded', calcHeight );
 		window.addEventListener( 'resize', calcHeight );

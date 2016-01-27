@@ -14,6 +14,8 @@ body {
 	overflow: hidden;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
+	background: linear-gradient(to bottom, #444444, #232323);
+	background-size: 100% 100%;
 }
 
 img {
@@ -26,11 +28,29 @@ img {
 	max-height: 100%;
 }
 
+#iframe-holder {
+	margin: 0;
+
+	&.mobile {
+		padding: 129px calc(50% - 162px) 126px calc(50% - 158px);
+		height: 570px;
+		background: url('../images/iPhone.svg') no-repeat center 10px;
+		background-size: 381px 802px;
+	}
+
+	&.tablet {
+		margin-top: 10px;
+		width: 768px;
+		height: 1024px;
+	}
+}
+
 #main-preview-frame {
 	width: 100%;
 	margin: 0;
 	padding: 0;
 	height: 999px;
+	max-height: 100%;
 }
 
 .purchase {
