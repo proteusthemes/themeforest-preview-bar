@@ -4,10 +4,10 @@ body { margin: 0; padding: 0; overflow: hidden; font-family: Helvetica, Arial, s
 img { margin: 0; padding: 0; border: none; height: auto; width: auto; max-width: 100%; max-height: 100%; }
 
 #iframe-holder { margin: 0; }
-#iframe-holder.mobile { padding: 129px calc(50% - 162px) 126px calc(50% - 158px); height: 570px; background: url("../images/iPhone.svg") no-repeat center 10px; background-size: 381px 802px; }
+#iframe-holder.mobile { padding: 123px calc(50% - 162px) 126px calc(50% - 158px); height: 570px; background: url("../images/iPhone.svg") no-repeat center 4px; background-size: 381px 802px; }
 #iframe-holder.tablet { margin-top: 10px; width: 768px; height: 1024px; }
 
-#main-preview-frame { width: 100%; margin: 0; padding: 0; height: 999px; max-height: 100%; }
+#main-preview-frame { width: 100%; margin: 0; padding: 0; height: 999px; }
 
 .purchase { position: relative; text-decoration: none; }
 

@@ -59,8 +59,9 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			var previewBar = document.getElementById( 'custom-preview-bar' ),
 				previewFrame = document.getElementById( 'main-preview-frame' );
 
-			if ( previewFrame && previewBar) {
+			if ( previewFrame && previewBar ) {
 				previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
+				previewFrame.style.maxHeight = Math.min( ( window.innerHeight - previewBar.offsetHeight - 123 ), 570 ) + 'px';
 			}
 
 			document.body.style.minHeight = window.innerHeight + 'px';

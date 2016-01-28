@@ -5,9 +5,6 @@
 // Sure, lock and load Compass
 @import "compass/css3";
 
-// Variables
-$height: 59px;
-
 body {
 	margin: 0;
 	padding: 0;
@@ -32,9 +29,9 @@ img {
 	margin: 0;
 
 	&.mobile {
-		padding: 129px calc(50% - 162px) 126px calc(50% - 158px);
+		padding: 123px calc(50% - 162px) 126px calc(50% - 158px);
 		height: 570px;
-		background: url('../images/iPhone.svg') no-repeat center 10px;
+		background: url('../images/iPhone.svg') no-repeat center 4px;
 		background-size: 381px 802px;
 	}
 
@@ -50,7 +47,6 @@ img {
 	margin: 0;
 	padding: 0;
 	height: 999px;
-	max-height: 100%;
 }
 
 .purchase {
