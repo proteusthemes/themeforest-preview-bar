@@ -167,9 +167,46 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<?php endif; ?>
 
 		<!-- custom, not so important JS at the end -->
-		<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script>
-			$( function() {
+			document.addEventListener('DOMContentLoaded', function() {
+				var utils = {
+					extend: function(out) {
+						out = out || {};
+
+						for (var i = 1; i < arguments.length; i++) {
+							if (!arguments[i])
+								continue;
+
+							for (var key in arguments[i]) {
+								if (arguments[i].hasOwnProperty(key))
+									out[key] = arguments[i][key];
+							}
+						}
+
+						return out;
+					},
+
+					objToArray: function (obj) {
+						return Object.keys(obj).map(function (key) {
+							return obj[key];
+						});
+					},
+
+					each: function (obj, cb, context) {
+						for (var key in obj) {
+							if (obj.hasOwnProperty(key)) {
+								if (context) {
+									cb.call(context, obj[key], key, obj);
+								} else {
+									cb(obj[key], key, obj);
+								}
+							}
+						}
+						return obj;
+					},
+				};
+
+
 				/**
 				 * Constructor
 				 * @return {[type]} [description]
@@ -179,7 +216,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 					this.stringifyObj( this.parametersObj );
 				};
 
-				$.extend( utmDecorator.prototype, {
+				utils.extend( utmDecorator.prototype, {
 					// from: https://support.google.com/analytics/answer/1033867?hl=en
 					utmParams: [ 'utm_source', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign' ],
 
@@ -204,10 +241,8 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 					 * Pass the DOM element and it will output the decorated link
 					 * @param  {DOM} el
 					 */
-					decorate: function ( el ) {
-						var $el = $( el );
-
-						var prepend = $el[0].search.length > 0 ? '&' : '?';
+					decorate: function ( $el ) {
+						var prepend = $el.search.length > 0 ? '&' : '?';
 
 						if ( this.urlAppend ) {
 							$el.attr( 'href', $el.attr( 'href' ) + prepend + this.urlAppend );
@@ -225,12 +260,12 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 						this.parametersObj = {};
 
 						// check every
-						$.each( this.utmParams, $.proxy( function ( index, utmParam ) {
+						this.utmParams.forEach( function ( utmParam ) {
 							var utmParamVal = this.getParameterByName( utmParam );
 							if ( utmParamVal ) {
 								this.parametersObj[ utmParam ] = utmParamVal;
 							}
-						}, this ) );
+						}, this );
 
 						return this;
 					},
@@ -242,9 +277,11 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 					 */
 					stringifyObj: function ( obj ) {
 						var urlAppend = [];
-						$.each( obj, $.proxy( function ( key, val ) {
+
+						utils.each( obj, function ( val, key ) {
+							debugger;
 							urlAppend.push( key + '=' + val );
-						}, this ) );
+						} );
 
 						this.urlAppend = urlAppend.join( '&' );
 
@@ -254,10 +291,13 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 
 				// decorate all links to themeforest and to our demo page on page load
 				var decorator = new utmDecorator;
-				$( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' ).each( function ( index, $el ) {
+				var elms = document.querySelectorAll( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' );
+				elms = utils.objToArray(elms);
+
+				elms.forEach( function ( $el ) {
 					decorator.decorate( $el );
 				} );
-			} );
+			});
 		</script>
 	</body>
 </html>
