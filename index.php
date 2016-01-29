@@ -57,11 +57,23 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<script type="text/javascript">
 		var calcHeight = function() {
 			var previewBar = document.getElementById( 'custom-preview-bar' ),
-				previewFrame = document.getElementById( 'main-preview-frame' );
+				previewFrame = document.getElementById( 'main-preview-frame' ),
+				style = 'tablet';
 
 			if ( previewFrame && previewBar ) {
 				previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
-				previewFrame.style.maxHeight = Math.min( ( window.innerHeight - previewBar.offsetHeight - 123 ), 570 ) + 'px';
+
+				switch (style) {
+					case 'mobile':
+						previewFrame.style.maxHeight = Math.min( ( window.innerHeight - previewBar.offsetHeight - 109 ), 668 ) + 'px';
+						break;
+					case 'tablet':
+						previewFrame.style.maxHeight = Math.min( ( window.innerHeight - previewBar.offsetHeight - 113 ), 1005 ) + 'px';
+						break;
+					default:
+						previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
+						break;
+				}
 			}
 
 			document.body.style.minHeight = window.innerHeight + 'px';
@@ -170,7 +182,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
 				var utils = {
-					extend: function(out) {
+					extendObj: function(out) {
 						out = out || {};
 
 						for (var i = 1; i < arguments.length; i++) {
@@ -216,7 +228,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 					this.stringifyObj( this.parametersObj );
 				};
 
-				utils.extend( utmDecorator.prototype, {
+				utils.extendObj( utmDecorator.prototype, {
 					// from: https://support.google.com/analytics/answer/1033867?hl=en
 					utmParams: [ 'utm_source', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign' ],
 

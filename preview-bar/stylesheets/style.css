@@ -1,13 +1,13 @@
 /** Stylesheets for the Custom Preview Bar */
-body { margin: 0; padding: 0; overflow: hidden; font-family: Helvetica, Arial, sans-serif; font-size: 14px; background: linear-gradient(to bottom, #444444, #232323); background-size: 100% 100%; }
+body { margin: 0; padding: 0; overflow: hidden; font-family: Helvetica, Arial, sans-serif; font-size: 14px; background: #333; background: linear-gradient(to bottom, #444444, #333333); background-size: 100% 100%; }
 
 img { margin: 0; padding: 0; border: none; height: auto; width: auto; max-width: 100%; max-height: 100%; }
 
 #iframe-holder { margin: 0; }
-#iframe-holder.mobile { padding: 123px calc(50% - 162px) 126px calc(50% - 158px); height: 570px; background: url("../images/iPhone.svg") no-repeat center 4px; background-size: 381px 802px; }
-#iframe-holder.tablet { margin-top: 10px; width: 768px; height: 1024px; }
+#iframe-holder.mobile { padding: 109px calc(50% - 185px) 110px calc(50% - 190px); background: url("../images/iphone6.svg") no-repeat center 4px; background-size: 433px 884px; }
+#iframe-holder.tablet { padding: 113px calc(50% - 382px) 125px calc(50% - 386px); background: url("../images/ipad.svg") no-repeat center 4px; background-size: 838px 1236px; }
 
-#main-preview-frame { width: 100%; margin: 0; padding: 0; height: 999px; }
+#main-preview-frame { width: 100%; margin: 0; padding: 0; height: 999px; border: 2px solid #333; border-radius: 3px; }
 
 .purchase { position: relative; text-decoration: none; }
 
