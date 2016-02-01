@@ -6,6 +6,15 @@
   'use strict';
 
   var utils = {
+    // http://youmightnotneedjquery.com/#ready
+    ready: function (fn) {
+      if (document.readyState != 'loading') {
+        fn();
+      } else {
+        document.addEventListener('DOMContentLoaded', fn);
+      }
+    },
+
     // http://youmightnotneedjquery.com/#extend
     extendObj: function(out) {
       out = out || {};
@@ -142,7 +151,7 @@
   };
 
   /**
-   * Event handler for the DOMContentLoaded
+   * Event handler for the dom ready
    */
   var init = function init () {
     // calc height of the iframe on init
@@ -156,7 +165,7 @@
   };
 
   // events
-  document.addEventListener( 'DOMContentLoaded', init );
+  utils.ready(init);
   window.addEventListener( 'resize', calcHeight );
 
 
@@ -255,5 +264,5 @@
     } );
   };
 
-  document.addEventListener('DOMContentLoaded', decoratorHandler);
+  utils.ready(decoratorHandler);
 })();
