@@ -54,8 +54,6 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<!-- Fav icon -->
 	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
 
-	<script src="<?php echo BASE_URL; ?>preview-bar/js/main.min.js?ver=2.2" async></script>
-
 	<!-- fb tracking pixel -->
 	<?php if ( defined( 'FB_TRACKING_PX' ) && ! empty( FB_TRACKING_PX ) ): ?>
 	<script>(function() {
@@ -158,5 +156,8 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
 		<?php endif; ?>
 		</div>
+
+		<script src="<?php echo BASE_URL; ?>preview-bar/js/main.min.js?ver=2.2"></script>
+
 	</body>
 </html>
