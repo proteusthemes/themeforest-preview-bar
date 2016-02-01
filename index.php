@@ -49,7 +49,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<meta name="author" content="<?php echo AUTHOR; ?>">
 
 	<!--  = CSS stylesheets =  -->
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.css?ver=2" type="text/css" media="all" />
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.css?ver=2.1" type="text/css" media="all" />
 
 	<!-- Fav icon -->
 	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
