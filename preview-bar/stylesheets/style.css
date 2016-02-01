@@ -19,7 +19,7 @@ img { margin: 0; padding: 0; border: none; height: auto; width: auto; max-width:
 @media (max-width: 950px) { .fb_iframe_widget { top: -33px; } }
 @media (max-width: 475px) { .fb_iframe_widget { top: -25px; } }
 
-.preview-bar { z-index: 99999; background-color: #232323; border-bottom: 1px solid #000000; width: 100%; height: 54px; }
+.preview-bar { z-index: 99999; background-color: #232323; border-bottom: 1px solid #000000; width: 100%; height: 54px; position: relative; }
 
 .preview-bar__logo { float: left; padding-left: 11px; }
 @media (min-width: 745px) { .preview-bar__logo { border-right: 1px solid #333333; } }
@@ -57,3 +57,9 @@ img { margin: 0; padding: 0; border: none; height: auto; width: auto; max-width:
 
 .preview-bar__remove-frame__x { vertical-align: middle; padding-bottom: 2px; }
 @media (min-width: 569px) { .preview-bar__remove-frame__x { padding-right: 7px; } }
+
+.preview-bar__switcher { position: absolute; left: calc(50% - 60px); top: 12px; width: 120px; text-align: center; background-color: #121212; border-radius: 3px; overflow: hidden; }
+
+.switcher-btn { display: block; float: left; width: 33.33%; box-sizing: border-box; height: 33px; line-height: 33px; border-right: 1px solid #232323; }
+.switcher-btn:last-child { border-right: none; }
+.switcher-btn--active { background-color: #454545; }

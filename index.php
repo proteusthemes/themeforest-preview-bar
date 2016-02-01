@@ -55,30 +55,148 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
 
 	<script type="text/javascript">
+		var viewportState = (function viewportState (argument) {
+			'use strict';
+
+			var currentState = 'desktop', // default
+				possibleStates = ['desktop', 'tablet', 'mobile'];
+
+			return {
+				getState: function () {
+					return currentState;
+				},
+
+				getStates: function () {
+					return possibleStates;
+				},
+
+				switchTo: function (newState) {
+					if ( possibleStates.indexOf(newState) > -1 ) {
+						currentState = newState;
+					}
+
+					calcHeight();
+
+					return this.getState();
+				},
+			};
+		})();
+
+		var utils = {
+			// http://youmightnotneedjquery.com/#extend
+			extendObj: function(out) {
+				'use strict';
+				out = out || {};
+
+				for (var i = 1; i < arguments.length; i++) {
+					if (!arguments[i]) {
+						continue;
+					}
+
+					for (var key in arguments[i]) {
+						if (arguments[i].hasOwnProperty(key)) {
+							out[key] = arguments[i][key];
+						}
+					}
+				}
+
+				return out;
+			},
+
+			objToArray: function (obj) {
+				'use strict';
+				return Object.keys(obj).map(function (key) {
+					return obj[key];
+				});
+			},
+
+			each: function (obj, cb, context) {
+				'use strict';
+				for (var key in obj) {
+					if (obj.hasOwnProperty(key)) {
+						if (context) {
+							cb.call(context, obj[key], key, obj);
+						} else {
+							cb(obj[key], key, obj);
+						}
+					}
+				}
+				return obj;
+			},
+
+			addClass: function (el, className) {
+				'use strict';
+				if (el.classList) {
+					el.classList.add(className);
+				} else {
+					el.className += ' ' + className;
+				}
+			},
+
+			removeClass: function (el, className) {
+				'use strict';
+				if (el.classList) {
+					el.classList.remove(className);
+				} else {
+					el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+				}
+			},
+		};
+
 		var calcHeight = function() {
+			'use strict';
+
 			var previewBar = document.getElementById( 'custom-preview-bar' ),
-				previewFrame = document.getElementById( 'main-preview-frame' ),
-				style = 'tablet';
+				previewFrame = document.getElementById( 'main-preview-frame' );
 
 			if ( previewFrame && previewBar ) {
-				previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
+				var possibleMaxHeight = window.innerHeight - previewBar.offsetHeight;
 
-				switch (style) {
+				previewFrame.style.height = possibleMaxHeight + 'px';
+
+				switch (viewportState.getState()) {
 					case 'mobile':
-						previewFrame.style.maxHeight = Math.min( ( window.innerHeight - previewBar.offsetHeight - 109 ), 668 ) + 'px';
+						previewFrame.style.maxHeight = Math.min( ( possibleMaxHeight - 109 ), 668 ) + 'px';
 						break;
 					case 'tablet':
-						previewFrame.style.maxHeight = Math.min( ( window.innerHeight - previewBar.offsetHeight - 113 ), 1005 ) + 'px';
+						previewFrame.style.maxHeight = Math.min( ( possibleMaxHeight - 113 ), 1005 ) + 'px';
 						break;
 					default:
-						previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
+						previewFrame.style.maxHeight = possibleMaxHeight + 'px';
 						break;
 				}
 			}
 
 			document.body.style.minHeight = window.innerHeight + 'px';
 		};
-		document.addEventListener( 'DOMContentLoaded', calcHeight );
+
+		var init = function init () {
+			'use strict';
+
+			// calc height of the iframe on init
+			calcHeight();
+
+			// iframe size swithcer
+			var btns = document.querySelectorAll('.js-switcher > a');
+			utils.objToArray(btns).forEach(function (btn) {
+				btn.addEventListener('click', function (ev) {
+					ev.preventDefault();
+
+					var holder = document.querySelector('#iframe-holder'),
+						switchToClass = ev.currentTarget.getAttribute('data-switchto');
+
+					viewportState.getStates().forEach(function (classToRemove) {
+						utils.removeClass(holder, classToRemove);
+					});
+
+					utils.addClass(holder, switchToClass);
+
+					viewportState.switchTo(switchToClass);
+				});
+			});
+		};
+
+		document.addEventListener( 'DOMContentLoaded', init );
 		window.addEventListener( 'resize', calcHeight );
 	</script>
 
@@ -149,10 +267,16 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			</a>
 			<!-- Buy Now Button -->
 			<a class="preview-bar__purchase-button" href="<?php echo $item['url']; ?>&ref=<?php echo ENVATO_USERNAME; ?>">Buy now</a>
+			<!-- Mobile/Tablet/Desktop switcher -->
+			<div class="preview-bar__switcher js-switcher">
+				<a href="#" class="switcher-btn switcher-btn--active switcher--desktop" data-switchto="desktop">desk</a>
+				<a href="#" class="switcher-btn switcher--tablet" data-switchto="tablet">table</a>
+				<a href="#" class="switcher-btn switcher--mobile" data-switchto="mobile">mobile</a>
+			</div>
 		</div>
 
+	<div id="iframe-holder">
 	<?php if ( has_analytics( $item ) ): ?>
-		<div id="iframe-holder"></div>
 		<script>
 			/**
 			 * Dynamically create the iframe with the proper linker for analytics
@@ -177,47 +301,11 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<?php else : ?>
 		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
 	<?php endif; ?>
+	</div>
 
 		<!-- custom, not so important JS at the end -->
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
-				var utils = {
-					extendObj: function(out) {
-						out = out || {};
-
-						for (var i = 1; i < arguments.length; i++) {
-							if (!arguments[i])
-								continue;
-
-							for (var key in arguments[i]) {
-								if (arguments[i].hasOwnProperty(key))
-									out[key] = arguments[i][key];
-							}
-						}
-
-						return out;
-					},
-
-					objToArray: function (obj) {
-						return Object.keys(obj).map(function (key) {
-							return obj[key];
-						});
-					},
-
-					each: function (obj, cb, context) {
-						for (var key in obj) {
-							if (obj.hasOwnProperty(key)) {
-								if (context) {
-									cb.call(context, obj[key], key, obj);
-								} else {
-									cb(obj[key], key, obj);
-								}
-							}
-						}
-						return obj;
-					},
-				};
-
 
 				/**
 				 * Constructor
