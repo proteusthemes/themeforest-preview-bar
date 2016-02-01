@@ -58,8 +58,15 @@ img { margin: 0; padding: 0; border: none; height: auto; width: auto; max-width:
 .preview-bar__remove-frame__x { vertical-align: middle; padding-bottom: 2px; }
 @media (min-width: 569px) { .preview-bar__remove-frame__x { padding-right: 7px; } }
 
-.preview-bar__switcher { position: absolute; left: calc(50% - 60px); top: 12px; width: 120px; text-align: center; background-color: #121212; border-radius: 3px; overflow: hidden; }
+.preview-bar__switcher { display: none; }
+@media (min-width: 1100px) { .preview-bar__switcher { display: block; position: absolute; left: 60%; top: 12px; width: 120px; text-align: center; background-color: #121212; border-radius: 3px; overflow: hidden; } }
+@media (min-width: 1600px) { .preview-bar__switcher { left: calc(50% - 60px); } }
 
-.switcher-btn { display: block; float: left; width: 33.33%; box-sizing: border-box; height: 33px; line-height: 33px; border-right: 1px solid #232323; }
-.switcher-btn:last-child { border-right: none; }
+.switcher-btn { display: block; float: left; width: 33.33%; box-sizing: border-box; height: 33px; padding-top: 7px; }
+.switcher-btn > span { display: inline-block; background-repeat: no-repeat; background-position: center top; height: 19px; }
 .switcher-btn--active { background-color: #454545; }
+.switcher-btn--active > span { background-position: center bottom; }
+
+.switcher--desktop > span { background-image: url("../images/desktop-icon.png"); background-size: 22px 38px; width: 22px; }
+.switcher--tablet > span { background-image: url("../images/tablet-icon.png"); background-size: 15px 38px; width: 15px; }
+.switcher--mobile > span { background-image: url("../images/mobile-icon.png"); background-size: 12px 38px; width: 12px; }

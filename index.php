@@ -170,6 +170,26 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			document.body.style.minHeight = window.innerHeight + 'px';
 		};
 
+		var toggleViewport = function toggleViewport (ev) {
+			'use strict';
+
+			ev.preventDefault();
+
+			var holder = document.querySelector('#iframe-holder'),
+				switchToClass = ev.currentTarget.getAttribute('data-switchto');
+
+			viewportState.getStates().forEach(function (classToRemove) {
+				utils.removeClass(holder, classToRemove);
+			});
+
+			utils.addClass(holder, switchToClass);
+
+			utils.removeClass(document.querySelector('.switcher-btn--active'), 'switcher-btn--active');
+			utils.addClass(ev.currentTarget, 'switcher-btn--active');
+
+			viewportState.switchTo(switchToClass);
+		};
+
 		var init = function init () {
 			'use strict';
 
@@ -179,20 +199,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			// iframe size swithcer
 			var btns = document.querySelectorAll('.js-switcher > a');
 			utils.objToArray(btns).forEach(function (btn) {
-				btn.addEventListener('click', function (ev) {
-					ev.preventDefault();
-
-					var holder = document.querySelector('#iframe-holder'),
-						switchToClass = ev.currentTarget.getAttribute('data-switchto');
-
-					viewportState.getStates().forEach(function (classToRemove) {
-						utils.removeClass(holder, classToRemove);
-					});
-
-					utils.addClass(holder, switchToClass);
-
-					viewportState.switchTo(switchToClass);
-				});
+				btn.addEventListener('click', toggleViewport);
 			});
 		};
 
@@ -269,9 +276,9 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			<a class="preview-bar__purchase-button" href="<?php echo $item['url']; ?>&ref=<?php echo ENVATO_USERNAME; ?>">Buy now</a>
 			<!-- Mobile/Tablet/Desktop switcher -->
 			<div class="preview-bar__switcher js-switcher">
-				<a href="#" class="switcher-btn switcher-btn--active switcher--desktop" data-switchto="desktop">desk</a>
-				<a href="#" class="switcher-btn switcher--tablet" data-switchto="tablet">table</a>
-				<a href="#" class="switcher-btn switcher--mobile" data-switchto="mobile">mobile</a>
+				<a href="#" class="switcher-btn switcher-btn--active switcher--desktop" data-switchto="desktop"><span></span></a>
+				<a href="#" class="switcher-btn switcher--tablet" data-switchto="tablet"><span></span></a>
+				<a href="#" class="switcher-btn switcher--mobile" data-switchto="mobile"><span></span></a>
 			</div>
 		</div>
 
