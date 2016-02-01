@@ -1,7 +1,7 @@
 <?php
+
 require_once 'preview-bar/config.php';
 require_once 'preview-bar/functions.php';
-
 
 /**
  * Redirect ASAP, need to be done using JS
@@ -55,15 +55,155 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
 
 	<script type="text/javascript">
+		var viewportState = (function viewportState (argument) {
+			'use strict';
+
+			var currentState = 'desktop', // default
+				possibleStates = ['desktop', 'tablet', 'mobile'];
+
+			return {
+				getState: function () {
+					return currentState;
+				},
+
+				getStates: function () {
+					return possibleStates;
+				},
+
+				switchTo: function (newState) {
+					if ( possibleStates.indexOf(newState) > -1 ) {
+						currentState = newState;
+					}
+
+					calcHeight();
+
+					return this.getState();
+				},
+			};
+		})();
+
+		var utils = {
+			// http://youmightnotneedjquery.com/#extend
+			extendObj: function(out) {
+				'use strict';
+				out = out || {};
+
+				for (var i = 1; i < arguments.length; i++) {
+					if (!arguments[i]) {
+						continue;
+					}
+
+					for (var key in arguments[i]) {
+						if (arguments[i].hasOwnProperty(key)) {
+							out[key] = arguments[i][key];
+						}
+					}
+				}
+
+				return out;
+			},
+
+			objToArray: function (obj) {
+				'use strict';
+				return Object.keys(obj).map(function (key) {
+					return obj[key];
+				});
+			},
+
+			each: function (obj, cb, context) {
+				'use strict';
+				for (var key in obj) {
+					if (obj.hasOwnProperty(key)) {
+						if (context) {
+							cb.call(context, obj[key], key, obj);
+						} else {
+							cb(obj[key], key, obj);
+						}
+					}
+				}
+				return obj;
+			},
+
+			addClass: function (el, className) {
+				'use strict';
+				if (el.classList) {
+					el.classList.add(className);
+				} else {
+					el.className += ' ' + className;
+				}
+			},
+
+			removeClass: function (el, className) {
+				'use strict';
+				if (el.classList) {
+					el.classList.remove(className);
+				} else {
+					el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+				}
+			},
+		};
+
 		var calcHeight = function() {
+			'use strict';
+
 			var previewBar = document.getElementById( 'custom-preview-bar' ),
 				previewFrame = document.getElementById( 'main-preview-frame' );
 
-			if ( previewFrame && previewBar) {
-				previewFrame.style.height = ( window.innerHeight - previewBar.offsetHeight ) + 'px';
+			if ( previewFrame && previewBar ) {
+				var possibleMaxHeight = window.innerHeight - previewBar.offsetHeight;
+
+				previewFrame.style.height = possibleMaxHeight + 'px';
+
+				switch (viewportState.getState()) {
+					case 'mobile':
+						previewFrame.style.maxHeight = Math.min( ( possibleMaxHeight - 109 ), 668 ) + 'px';
+						break;
+					case 'tablet':
+						previewFrame.style.maxHeight = Math.min( ( possibleMaxHeight - 113 ), 1005 ) + 'px';
+						break;
+					default:
+						previewFrame.style.maxHeight = possibleMaxHeight + 'px';
+						break;
+				}
 			}
+
+			document.body.style.minHeight = window.innerHeight + 'px';
 		};
-		document.addEventListener( 'DOMContentLoaded', calcHeight );
+
+		var toggleViewport = function toggleViewport (ev) {
+			'use strict';
+
+			ev.preventDefault();
+
+			var holder = document.querySelector('#iframe-holder'),
+				switchToClass = ev.currentTarget.getAttribute('data-switchto');
+
+			viewportState.getStates().forEach(function (classToRemove) {
+				utils.removeClass(holder, classToRemove);
+			});
+
+			utils.addClass(holder, switchToClass);
+
+			utils.removeClass(document.querySelector('.switcher-btn--active'), 'switcher-btn--active');
+			utils.addClass(ev.currentTarget, 'switcher-btn--active');
+
+			viewportState.switchTo(switchToClass);
+		};
+
+		var init = function init () {
+			'use strict';
+
+			// calc height of the iframe on init
+			calcHeight();
+
+			// iframe size swithcer
+			var btns = document.querySelectorAll('.js-switcher > a');
+			utils.objToArray(btns).forEach(function (btn) {
+				btn.addEventListener('click', toggleViewport);
+			});
+		};
+
+		document.addEventListener( 'DOMContentLoaded', init );
 		window.addEventListener( 'resize', calcHeight );
 	</script>
 
@@ -134,10 +274,16 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			</a>
 			<!-- Buy Now Button -->
 			<a class="preview-bar__purchase-button" href="<?php echo $item['url']; ?>&ref=<?php echo ENVATO_USERNAME; ?>">Buy now</a>
+			<!-- Mobile/Tablet/Desktop switcher -->
+			<div class="preview-bar__switcher js-switcher">
+				<a href="#" class="switcher-btn switcher-btn--active switcher--desktop" data-switchto="desktop"><span></span></a>
+				<a href="#" class="switcher-btn switcher--tablet" data-switchto="tablet"><span></span></a>
+				<a href="#" class="switcher-btn switcher--mobile" data-switchto="mobile"><span></span></a>
+			</div>
 		</div>
 
+	<div id="iframe-holder">
 	<?php if ( has_analytics( $item ) ): ?>
-		<div id="iframe-holder"></div>
 		<script>
 			/**
 			 * Dynamically create the iframe with the proper linker for analytics
@@ -162,11 +308,12 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<?php else : ?>
 		<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
 	<?php endif; ?>
+	</div>
 
 		<!-- custom, not so important JS at the end -->
-		<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script>
-			$( function() {
+			document.addEventListener('DOMContentLoaded', function() {
+
 				/**
 				 * Constructor
 				 * @return {[type]} [description]
@@ -176,7 +323,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 					this.stringifyObj( this.parametersObj );
 				};
 
-				$.extend( utmDecorator.prototype, {
+				utils.extendObj( utmDecorator.prototype, {
 					// from: https://support.google.com/analytics/answer/1033867?hl=en
 					utmParams: [ 'utm_source', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign' ],
 
@@ -201,10 +348,8 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 					 * Pass the DOM element and it will output the decorated link
 					 * @param  {DOM} el
 					 */
-					decorate: function ( el ) {
-						var $el = $( el );
-
-						var prepend = $el[0].search.length > 0 ? '&' : '?';
+					decorate: function ( $el ) {
+						var prepend = $el.search.length > 0 ? '&' : '?';
 
 						if ( this.urlAppend ) {
 							$el.attr( 'href', $el.attr( 'href' ) + prepend + this.urlAppend );
@@ -222,12 +367,12 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 						this.parametersObj = {};
 
 						// check every
-						$.each( this.utmParams, $.proxy( function ( index, utmParam ) {
+						this.utmParams.forEach( function ( utmParam ) {
 							var utmParamVal = this.getParameterByName( utmParam );
 							if ( utmParamVal ) {
 								this.parametersObj[ utmParam ] = utmParamVal;
 							}
-						}, this ) );
+						}, this );
 
 						return this;
 					},
@@ -239,9 +384,11 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 					 */
 					stringifyObj: function ( obj ) {
 						var urlAppend = [];
-						$.each( obj, $.proxy( function ( key, val ) {
+
+						utils.each( obj, function ( val, key ) {
+							debugger;
 							urlAppend.push( key + '=' + val );
-						}, this ) );
+						} );
 
 						this.urlAppend = urlAppend.join( '&' );
 
@@ -251,10 +398,13 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 
 				// decorate all links to themeforest and to our demo page on page load
 				var decorator = new utmDecorator;
-				$( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' ).each( function ( index, $el ) {
+				var elms = document.querySelectorAll( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' );
+				elms = utils.objToArray(elms);
+
+				elms.forEach( function ( $el ) {
 					decorator.decorate( $el );
 				} );
-			} );
+			});
 		</script>
 	</body>
 </html>
