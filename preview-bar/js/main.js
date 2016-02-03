@@ -1,3 +1,4 @@
+/* global ga */
 /**
  * Utils functions
  * @type {Object}
@@ -8,7 +9,7 @@
   var utils = {
     // http://youmightnotneedjquery.com/#ready
     ready: function (fn) {
-      if (document.readyState != 'loading') {
+      if (document.readyState !== 'loading') {
         fn();
       } else {
         document.addEventListener('DOMContentLoaded', fn);
@@ -74,7 +75,7 @@
   /**
    * Viewport State
    */
-  var viewportState = (function viewportState (argument) {
+  var viewportState = (function viewportState () {
     var currentState = 'desktop', // default
       possibleStates = ['desktop', 'tablet', 'mobile'];
 
@@ -148,6 +149,14 @@
     utils.addClass(ev.currentTarget, 'switcher-btn--active');
 
     viewportState.switchTo(switchToClass);
+
+    /**
+     * Google Analytics event tracking
+     * https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+     */
+    if ( ga ) {
+      ga( 'send', 'event', 'layout switcher', 'click', switchToClass );
+    }
   };
 
   /**
@@ -244,7 +253,6 @@
         var urlAppend = [];
 
         utils.each( obj, function ( val, key ) {
-          debugger;
           urlAppend.push( key + '=' + val );
         } );
 
