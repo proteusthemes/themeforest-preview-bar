@@ -118,7 +118,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			<!-- Made by -->
 			<span class="preview-bar__proteusthemes">made by <a href="<?php echo MADE_BY_LINK; ?>" target="_blank"><?php echo MADE_BY_TEXT; ?></a></span>
 			<!-- Close Frame -->
-			<a class="preview-bar__remove-frame" href="<?php echo $item['demo_url']; ?>" title="Close This Frame">
+			<a class="preview-bar__remove-frame  js-link-to-demo" href="<?php echo $item['demo_url']; ?>" title="Close This Frame">
 				<img class="preview-bar__remove-frame__x" src="preview-bar/images/x.png"> <span class="preview-bar__remove-frame__text">Remove Frame</span>
 			</a>
 			<!-- Buy Now Button -->
@@ -157,6 +157,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 		<?php else : ?>
 			<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
 		<?php endif; ?>
+			<div class="qr-code"></div>
 		</div>
 	</body>
 </html>

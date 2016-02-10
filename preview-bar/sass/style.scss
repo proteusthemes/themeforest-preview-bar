@@ -33,6 +33,16 @@ img {
 		padding: 109px calc(50% - 185px) 110px calc(50% - 190px);
 		background: url('../images/iphone6.svg') no-repeat center 4px;
 		background-size: 433px 884px;
+		position: relative;
+
+		.qr-code {
+			position: absolute;
+			display: block;
+			top: calc(50% - 74px);
+			left: calc(50% + 270px);
+			background-color: #fff;
+			padding: 10px;
+		}
 	}
 
 	&.tablet {
@@ -40,6 +50,10 @@ img {
 		background: url('../images/ipad.svg') no-repeat center 4px;
 		background-size: 838px 1236px;
 	}
+}
+
+.qr-code {
+	display: none;
 }
 
 #main-preview-frame {
