@@ -1,3 +1,4 @@
+/* global ga, QRCode */
 /**
  * Utils functions
  * @type {Object}
@@ -8,7 +9,7 @@
   var utils = {
     // http://youmightnotneedjquery.com/#ready
     ready: function (fn) {
-      if (document.readyState != 'loading') {
+      if (document.readyState !== 'loading') {
         fn();
       } else {
         document.addEventListener('DOMContentLoaded', fn);
@@ -68,15 +69,31 @@
         el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
       }
     },
+
+    // https://github.com/filamentgroup/loadJS
+    loadJS: function( src, cb ){
+      var ref = document.getElementsByTagName( 'script' )[ 0 ];
+      var script = document.createElement( 'script' );
+
+      script.src = src;
+      script.async = true;
+      ref.parentNode.insertBefore( script, ref );
+
+      if (cb && typeof(cb) === 'function') {
+        script.onload = cb;
+      }
+      return script;
+    },
   };
 
 
   /**
    * Viewport State
    */
-  var viewportState = (function viewportState (argument) {
+  var viewportState = (function viewportState () {
     var currentState = 'desktop', // default
-      possibleStates = ['desktop', 'tablet', 'mobile'];
+      possibleStates = ['desktop', 'tablet', 'mobile'],
+      alreadyBeenToMobile = false;
 
     return {
       getState: function () {
@@ -93,6 +110,18 @@
         }
 
         calcHeight();
+
+        if ( 'mobile' === newState && ! alreadyBeenToMobile ) {
+          utils.loadJS('https://cdn.rawgit.com/davidshimjs/qrcodejs/06c7a5e/qrcode.min.js', function () {
+            new QRCode(document.querySelector('.qr-code'), {
+              text:   document.querySelector('.js-link-to-demo').href,
+              width:  128,
+              height: 128,
+            });
+          });
+
+          alreadyBeenToMobile = true;
+        }
 
         return this.getState();
       },
@@ -148,6 +177,14 @@
     utils.addClass(ev.currentTarget, 'switcher-btn--active');
 
     viewportState.switchTo(switchToClass);
+
+    /**
+     * Google Analytics event tracking
+     * https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+     */
+    if ( ga ) {
+      ga( 'send', 'event', 'layout switcher', 'click', switchToClass );
+    }
   };
 
   /**
@@ -244,7 +281,6 @@
         var urlAppend = [];
 
         utils.each( obj, function ( val, key ) {
-          debugger;
           urlAppend.push( key + '=' + val );
         } );
 
