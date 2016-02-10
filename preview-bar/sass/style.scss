@@ -43,6 +43,14 @@ img {
 			background-color: #fff;
 			padding: 10px;
 		}
+
+		.qr-label {
+			color: #aaa;
+			font-size: 12px;
+			height: 0;
+			text-align: center;
+			transform: translateY(-35px);
+		}
 	}
 
 	&.tablet {

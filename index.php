@@ -49,12 +49,12 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<meta name="author" content="<?php echo AUTHOR; ?>">
 
 	<!--  = CSS stylesheets =  -->
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.min.css?ver=2.5" type="text/css" media="all" />
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.min.css?ver=2.6" type="text/css" media="all" />
 
 	<!-- Fav icon -->
 	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
 
-	<script src="<?php echo BASE_URL; ?>preview-bar/js/main.min.js?ver=2.5" async></script>
+	<script src="<?php echo BASE_URL; ?>preview-bar/js/main.min.js?ver=2.6" async></script>
 
 	<!-- fb tracking pixel -->
 	<?php if ( defined( 'FB_TRACKING_PX' ) && ! empty( FB_TRACKING_PX ) ): ?>
@@ -157,7 +157,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 		<?php else : ?>
 			<iframe src="<?php echo $item['demo_url']; ?>" frameborder="0" id="main-preview-frame"></iframe>
 		<?php endif; ?>
-			<div class="qr-code"></div>
+			<div class="qr-code"><div class="qr-label">Mobile demo preview:</div></div>
 		</div>
 	</body>
 </html>
