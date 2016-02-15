@@ -2,7 +2,7 @@
 /**
  * Constants / config
  */
-define( 'BASE_DOMAIN', 'http://www.proteusthemes.dev' ); // domain where preview bar is installed, with protocol
+define( 'BASE_DOMAIN', 'https://www.proteusthemes.com' ); // domain where preview bar is installed, with protocol
 define( 'BASE_URL', BASE_DOMAIN . '/themes/' ); // url where this preview bar is installed
 define( 'ENVATO_USERNAME', 'ProteusThemes' ); // for the refferal link
 define( 'AUTHOR', 'ProteusThemes' ); // displayed in author meta tags

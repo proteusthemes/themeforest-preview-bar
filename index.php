@@ -49,12 +49,12 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 	<meta name="author" content="<?php echo AUTHOR; ?>">
 
 	<!--  = CSS stylesheets =  -->
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.css?ver=<?php echo ASSETS_VERSION; ?>" type="text/css" media="all" />
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>preview-bar/stylesheets/style.min.css?ver=<?php echo ASSETS_VERSION; ?>" type="text/css" media="all" />
 
 	<!-- Fav icon -->
 	<link rel="shortcut icon" href="<?php echo BASE_DOMAIN; ?>/favicon.ico">
 
-	<script src="<?php echo BASE_URL; ?>preview-bar/js/main.js?ver=<?php echo ASSETS_VERSION; ?>" async></script>
+	<script src="<?php echo BASE_URL; ?>preview-bar/js/main.min.js?ver=<?php echo ASSETS_VERSION; ?>" async></script>
 
 	<!-- fb tracking pixel -->
 	<?php if ( defined( 'FB_TRACKING_PX' ) && ! empty( FB_TRACKING_PX ) ): ?>
