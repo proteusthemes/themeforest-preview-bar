@@ -165,13 +165,20 @@
     ev.preventDefault();
 
     var holder = document.querySelector('#iframe-holder'),
-      switchToClass = ev.currentTarget.getAttribute('data-switchto');
+      switchToClass = ev.currentTarget.getAttribute('data-switchto'),
+      bodyEl        = document.querySelector('body'),
+      bodyBgClass   = 'body-bg';
 
     viewportState.getStates().forEach(function (classToRemove) {
       utils.removeClass(holder, classToRemove);
+      utils.removeClass(bodyEl, bodyBgClass);
     });
 
     utils.addClass(holder, switchToClass);
+
+    if ('desktop' !== switchToClass) {
+      utils.addClass(bodyEl, bodyBgClass);
+    }
 
     utils.removeClass(document.querySelector('.switcher-btn--active'), 'switcher-btn--active');
     utils.addClass(ev.currentTarget, 'switcher-btn--active');
