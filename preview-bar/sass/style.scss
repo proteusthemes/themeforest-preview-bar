@@ -11,9 +11,12 @@ body {
 	overflow: hidden;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
-	background: #333;
-	background: linear-gradient(to bottom, #444444, #333333);
-	background-size: 100% 100%;
+
+	&.body-bg {
+		background: #333;
+		background: linear-gradient(to bottom, #444444, #333333);
+		background-size: 100% 100%;
+	}
 }
 
 img {

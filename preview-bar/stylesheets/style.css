@@ -1,5 +1,6 @@
 /** Stylesheets for the Custom Preview Bar */
-body { margin: 0; padding: 0; overflow: hidden; font-family: Helvetica, Arial, sans-serif; font-size: 14px; background: #333; background: -webkit-linear-gradient(top, #444444, #333333); background: linear-gradient(to bottom, #444444, #333333); background-size: 100% 100%; }
+body { margin: 0; padding: 0; overflow: hidden; font-family: Helvetica, Arial, sans-serif; font-size: 14px; }
+body.body-bg { background: #333; background: -webkit-linear-gradient(top, #444444, #333333); background: linear-gradient(to bottom, #444444, #333333); background-size: 100% 100%; }
 
 img { margin: 0; padding: 0; border: none; height: auto; width: auto; max-width: 100%; max-height: 100%; }
 
