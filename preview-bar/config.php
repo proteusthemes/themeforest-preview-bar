@@ -2,7 +2,7 @@
 /**
  * Constants / config
  */
-define( 'BASE_DOMAIN', 'https://www.proteusthemes.com' ); // domain where preview bar is installed, with protocol
+define( 'BASE_DOMAIN', 'http://www.proteusthemes.dev' ); // domain where preview bar is installed, with protocol
 define( 'BASE_URL', BASE_DOMAIN . '/themes/' ); // url where this preview bar is installed
 define( 'ENVATO_USERNAME', 'ProteusThemes' ); // for the refferal link
 define( 'AUTHOR', 'ProteusThemes' ); // displayed in author meta tags
@@ -11,6 +11,7 @@ define( 'MADE_BY_LINK', BASE_DOMAIN ); // displayed in author meta tags
 define( 'MADE_BY_TEXT', 'ProteusThemes' ); // displayed in author meta tags
 define( 'FB_TRACKING_PX', '650819048377184'); // facebook tracking pixel
 define( 'GA_ID', 'UA-33538073-12'); // google analytics ID
+define( 'ASSETS_VERSION', '2.6' ); // cache busting
 
 define( 'FALLBACK_ITEM_URL', BASE_DOMAIN ); // if there is no item choosen, this URL will be displayed
 define( 'FALLBACK_ITEM_TITLE_PREFIX', 'Item Preview - by ' ); // if there is no item choosen
