@@ -35,12 +35,6 @@
       return out;
     },
 
-    objToArray: function (obj) {
-      return Object.keys(obj).map(function (key) {
-        return obj[key];
-      });
-    },
-
     each: function (obj, cb, context) {
       for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -202,8 +196,7 @@
     calcHeight();
 
     // iframe size swithcer
-    var btns = document.querySelectorAll('.js-switcher > a');
-    utils.objToArray(btns).forEach(function (btn) {
+    [].forEach.call(document.querySelectorAll('.js-switcher > a'), function (btn) {
       btn.addEventListener('click', toggleViewport);
     });
   };
@@ -300,9 +293,8 @@
     // decorate all links to themeforest and to our demo page on page load
     var decorator = new utmDecorator;
     var elms = document.querySelectorAll( 'a[href*="themeforest.net"], a[href*="proteusthemes.com"]' );
-    elms = utils.objToArray(elms);
 
-    elms.forEach( function ( $el ) {
+    [].forEach.call( elms, function ( $el ) {
       decorator.decorate( $el );
     } );
   };
