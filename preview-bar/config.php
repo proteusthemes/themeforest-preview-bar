@@ -193,6 +193,13 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/beauty-hair-salon-nail-spa-fashion-wp-theme/14458185?license=regular&open_purchase_for_item_id=14458185&purchasable=source',
 		'price'       => '$59',
 	),
+	'auto-wp' => array(
+		'title'       => 'Auto - Car Mechanic and Auto Repair WP Theme - by ' . ENVATO_USERNAME,
+		'title_short' => 'Auto WP',
+		'demo_url'    => '//demo.proteusthemes.com/auto/',
+		'url'         => 'http://themeforest.net/item/auto-ideal-car-mechanic-and-auto-repair-template-for-wordpress/15194530?license=regular&open_purchase_for_item_id=15194530&purchasable=source',
+		'price'       => '$59',
+	),
 );
 
 // fix: first element last in the dropdown
