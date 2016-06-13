@@ -200,6 +200,13 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/auto-ideal-car-mechanic-and-auto-repair-template-for-wordpress/15194530?license=regular&open_purchase_for_item_id=15194530&purchasable=source',
 		'price'       => '$59',
 	),
+	'bolts-wp' => array(
+		'title'       => 'Bolts - Construction Multi-Niche Theme For Medium to Large Business - by ' . ENVATO_USERNAME,
+		'title_short' => 'Bolts WP',
+		'demo_url'    => '//demo.proteusthemes.com/bolts-landing-page/',
+		'url'         => 'http://themeforest.net/item/bolts-construction-theme-for-medium-to-large-business/15846369?license=regular&open_purchase_for_item_id=15846369&purchasable=source',
+		'price'       => '$59',
+	),
 );
 
 // fix: first element last in the dropdown
