@@ -12,7 +12,7 @@ if( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<script>window.top.location.href = "<?php echo BASE_URL; ?>?theme=<?php echo $_GET['theme']; ?>";</script>
+		<script>window.top.location.href = "<?php echo BASE_URL; ?>?theme=<?php echo htmlspecialchars($_GET['theme']); ?>";</script>
 	</head>
 	<body></body>
 </html>
