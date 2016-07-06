@@ -207,6 +207,13 @@ $items = array(
 		'url'         => 'http://themeforest.net/item/bolts-construction-theme-for-medium-to-large-business/15846369?license=regular&open_purchase_for_item_id=15846369&purchasable=source',
 		'price'       => '$59',
 	),
+	'shaka-wp' => array(
+		'title'       => 'Shaka - A beach business WordPress theme - by ' . ENVATO_USERNAME,
+		'title_short' => 'Shaka WP',
+		'demo_url'    => '//demo.proteusthemes.com/shaka/',
+		'url'         => 'https://themeforest.net/item/shaka-a-beach-business-wordpress-theme-for-water-sport-and-activity-schools-surf-kayak-and-more/16965165?license=regular&open_purchase_for_item_id=16965165&purchasable=source',
+		'price'       => '$59',
+	),
 );
 
 // fix: first element last in the dropdown
