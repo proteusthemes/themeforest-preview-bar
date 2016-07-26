@@ -117,7 +117,7 @@ $items = array(
 	'buildpress-wp' => array(
 		'title'       => 'BuildPress - WP Theme For Construction Business - by ' . ENVATO_USERNAME,
 		'title_short' => 'BuildPress WP',
-		'demo_url'    => '//demo.proteusthemes.com/buildpress/',
+		'demo_url'    => '//demo.proteusthemes.com/buildpress-landing-page/',
 		'url'         => 'http://themeforest.net/item/buildpress-wp-theme-for-construction-business/9323981?license=regular&open_purchase_for_item_id=9323981&purchasable=source',
 		'price'       => '$59',
 		// 'analytics'   => array(
