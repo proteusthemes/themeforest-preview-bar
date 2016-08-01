@@ -195,7 +195,7 @@
     // calc height of the iframe on init
     calcHeight();
 
-    // iframe size swithcer
+    // iframe size switcher
     [].forEach.call(document.querySelectorAll('.js-switcher > a'), function (btn) {
       btn.addEventListener('click', toggleViewport);
     });
@@ -203,6 +203,7 @@
 
   // events
   utils.ready(init);
+  window.addEventListener( 'load', calcHeight );
   window.addEventListener( 'resize', calcHeight );
 
 
