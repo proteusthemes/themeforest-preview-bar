@@ -27,7 +27,7 @@ $items = array(
 		// short title is used in the drop-down menu
 		'title_short' => 'Hairpress HTML',
 		// URL to demo site
-		'demo_url'    => '//www.proteusthemes.com/themes/hairpress/',
+		'demo_url'    => 'http://html-demo.proteusthemes.com/hairpress/',
 		// needs any explanation? URL to your item in ThemeForest
 		'url'         => 'http://themeforest.net/item/hairpress-html-template-for-hair-salons/3803346?license=regular&open_purchase_for_item_id=3803346&purchasable=source',
 		// Price of the item
@@ -49,7 +49,7 @@ $items = array(
 	'webmarket-html' => array(
 		'title'       => 'Webmarket - HTML Template for Online Shop Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Webmarket HTML',
-		'demo_url'    => '//www.proteusthemes.com/themes/webmarket-html/',
+		'demo_url'    => 'http://html-demo.proteusthemes.com/webmarket/',
 		'url'         => 'http://themeforest.net/item/webmarket-html-template-for-online-shop/5409539?license=regular&open_purchase_for_item_id=5409539&purchasable=source',
 		'price'       => '$17',
 	),
@@ -63,7 +63,7 @@ $items = array(
 	'organique-html' => array(
 		'title'       => 'Organique - HTML Template For Healthy Food Store Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Organique HTML',
-		'demo_url'    => '//www.proteusthemes.com/themes/organique-html/',
+		'demo_url'    => 'http://html-demo.proteusthemes.com/organique/',
 		'url'         => 'http://themeforest.net/item/organique-html-template-for-healthy-food-store/6779086?license=regular&open_purchase_for_item_id=6779086&purchasable=source',
 		'price'       => '$18',
 	),
@@ -90,7 +90,7 @@ $items = array(
 	'readable-html' => array(
 		'title'       => 'Readable - HTML Template For Blog Preview - by ' . ENVATO_USERNAME,
 		'title_short' => 'Readable HTML',
-		'demo_url'    => '//www.proteusthemes.com/themes/readable-html/',
+		'demo_url'    => 'http://html-demo.proteusthemes.com/readable/',
 		'url'         => 'http://themeforest.net/item/readable-blog-template-focused-on-readability/7499064?license=regular&open_purchase_for_item_id=7499064&purchasable=source',
 		'price'       => '$17',
 	),
