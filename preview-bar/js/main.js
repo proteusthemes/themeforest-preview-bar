@@ -192,6 +192,8 @@
    * Event handler for the dom ready
    */
   var init = function init () {
+    calcHeight();
+
     // iframe size switcher
     [].forEach.call(document.querySelectorAll('.js-switcher > a'), function (btn) {
       btn.addEventListener('click', toggleViewport);

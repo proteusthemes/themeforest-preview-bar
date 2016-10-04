@@ -61,6 +61,13 @@ img {
 		background: url('../images/ipad.svg') no-repeat center 4px;
 		background-size: 838px 1236px;
 	}
+
+	&.tablet,
+	&.mobile {
+		#main-preview-frame {
+			border-radius: 3px;
+		}
+	}
 }
 
 .qr-code {
@@ -72,10 +79,7 @@ img {
 	margin: 0;
 	padding: 0;
 	height: 999px;
-	// opacity: .5;
 	border: 2px solid #333;
-	// border: 2px solid red;
-	border-radius: 3px;
 }
 
 .purchase {

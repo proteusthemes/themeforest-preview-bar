@@ -6,7 +6,7 @@ css:
 	compass compile --force
 	cd stylesheets/ ; \
 	postcss --use autoprefixer --replace style.css ; \
-	cssnano style.css style.min.css --no-zindex
+	postcss --use cssnano -o style.min.css style.css ; \
 
 js:
 	cd js/ ; \
