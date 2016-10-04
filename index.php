@@ -131,7 +131,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 			</div>
 		</div>
 
-		<div id="iframe-holder">
+		<div id="iframe-holder" class="desktop">
 		<?php if ( has_analytics( $item ) ): ?>
 			<script>
 				/**
