@@ -126,7 +126,7 @@
   /**
    * Calculate height of the iframe, depending on the viewportState
    */
-  var calcHeight = function() {
+  window.calcHeight = function() {
     var previewBar = document.getElementById( 'custom-preview-bar' ),
       previewFrame = document.getElementById( 'main-preview-frame' );
 
@@ -202,7 +202,7 @@
 
   // events
   utils.ready(init);
-  window.addEventListener( 'load', calcHeight ); // calc height of the iframe on load
+  calcHeight(); // calc height of the iframe on load
   window.addEventListener( 'resize', calcHeight ); // calc height of the iframe on resize
 
 
