@@ -138,6 +138,18 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 				 * Dynamically create the iframe with the proper linker for analytics
 				 */
 				var linker;
+				
+				function defcalcHeight() {
+					var previewBar = document.getElementById( 'custom-preview-bar' ),
+					  previewFrame = document.getElementById( 'main-preview-frame' );
+
+					if ( previewFrame && previewBar ) {
+					  var possibleMaxHeight = window.innerHeight - previewBar.offsetHeight;
+					  previewFrame.style.height = possibleMaxHeight + 'px';	
+					}
+
+					document.body.style.minHeight = window.innerHeight + 'px';
+				}
 
 				function addiFrame( divId, url, opt_hash ) {
 					return function( tracker ) {
@@ -147,7 +159,7 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 						iFrame.id     = 'main-preview-frame';
 						iFrame.setAttribute( 'frameborder', '0' );
 						document.getElementById( divId ).appendChild( iFrame );
-						calcHeight();
+						defcalcHeight();
 					};
 				}
 
