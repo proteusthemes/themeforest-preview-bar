@@ -200,9 +200,7 @@
 
   // events
   utils.ready(init);
-  window.addEventListener( 'load', calcHeight ); // calc height of the iframe on load
   window.addEventListener( 'resize', calcHeight ); // calc height of the iframe on resize
-
 
   /**
    * UTM decorator - for tracking purposes
