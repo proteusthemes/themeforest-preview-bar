@@ -7,12 +7,17 @@ require_once 'preview-bar/functions.php';
  * Redirect ASAP, need to be done using JS
  */
 if( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
-	if( FALSE !== strstr( $_SERVER['HTTP_REFERER'], 'themeforest.net' ) ) {
+	$http_ref = $_SERVER['HTTP_REFERER'];
+	if( FALSE !== strstr( $http_ref, 'themeforest.net' ) ) {
+		$match_successful = preg_match( '/_ga=([\d\.]+)/', $http_ref, $matches );
 		?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<script>window.top.location.href = "<?php echo BASE_URL; ?>?theme=<?php echo htmlspecialchars($_GET['theme']); ?>";</script>
+		<script>window.top.location.href = "<?php echo BASE_URL; ?>?theme=<?php
+			echo htmlspecialchars( $_GET[ 'theme' ] );
+			echo $match_successful ? ( '&_ga=' . $matches[1] ) : '';
+		?>";</script>
 	</head>
 	<body></body>
 </html>
@@ -86,10 +91,10 @@ if( key_exists( @$_GET['theme'], $items ) ) {
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-			ga('require', 'linker');
-
 			// property for the preview bar
 			ga('create', '<?php echo GA_ID; ?>', 'auto');
+			ga('require', 'linker');
+			ga('linker:autoLink', ['proteusthemes.com','themeforest.net']);
 			ga('send', 'pageview');
 
 		<?php if ( has_analytics( $item ) ) : ?>
