@@ -10,7 +10,7 @@ define( 'LOGO_LINK', 'http://themeforest.net/user/ProteusThemes/portfolio?ref=Pr
 define( 'MADE_BY_LINK', BASE_DOMAIN ); // displayed in author meta tags
 define( 'MADE_BY_TEXT', 'ProteusThemes' ); // displayed in author meta tags
 define( 'FB_TRACKING_PX', '650819048377184'); // facebook tracking pixel
-define( 'GA_ID', 'UA-33538073-12'); // google analytics ID
+define( 'GA_ID', 'UA-33538073-25'); // google analytics ID
 define( 'ASSETS_VERSION', '2.9' ); // cache busting
 
 define( 'FALLBACK_ITEM_URL', BASE_DOMAIN ); // if there is no item choosen, this URL will be displayed
