@@ -1,3 +1,5 @@
+*This repo is not maintained anymore. Open an issue and let me know if you want to adopt it.*
+
 ThemeForest Custom Preview Bar
 =======================
 
